@@ -1,1040 +1,124 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مرکز فَهام — نقشه جامع حوزه‌های پژوهشی</title>
-    <!-- Fonts and Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* ============================================================
-               GLOBAL RESET & BASE
-            ============================================================ */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'IBM Plex Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
-            background: #f8fafc;
-            color: #1e293b;
-            line-height: 1.7;
-            padding: 2rem 1rem;
-        }
-
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 28px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-            padding: 2.5rem 2.8rem;
-            transition: all 0.2s ease;
-        }
-
-        /* ============================================================
-               TYPOGRAPHY & HEADINGS
-            ============================================================ */
-        h1,
-        h2,
-        h3,
-        h4 {
-            font-weight: 600;
-            letter-spacing: -0.01em;
-        }
-
-        .main-title {
-            font-size: 2.6rem;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 0.2rem;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .main-title small {
-            font-size: 1.1rem;
-            font-weight: 400;
-            color: #475569;
-            background: #eef2ff;
-            padding: 0.2rem 1.2rem;
-            border-radius: 40px;
-        }
-
-        .subhead {
-            font-size: 1.1rem;
-            color: #475569;
-            border-right: 4px solid #3b82f6;
-            padding-right: 1rem;
-            margin-top: 0.2rem;
-            margin-bottom: 1.8rem;
-            font-weight: 300;
-        }
-
-        .section-title {
-            font-size: 1.9rem;
-            font-weight: 700;
-            color: #0f172a;
-            margin-top: 2.8rem;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            border-bottom: 3px solid #e2e8f0;
-            padding-bottom: 0.6rem;
-            scroll-margin-top: 1.2rem;
-        }
-
-        .section-title i {
-            color: #3b82f6;
-            font-size: 1.8rem;
-            width: 2.2rem;
-        }
-
-        .section-sub {
-            color: #64748b;
-            font-weight: 300;
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
-        }
-
-        .badge-level {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 0.2rem 1rem;
-            border-radius: 30px;
-            background: #dbeafe;
-            color: #1d4ed8;
-            margin-left: 10px;
-            letter-spacing: 0.3px;
-        }
-
-        .badge-phd {
-            background: #fae8ff;
-            color: #7c3aed;
-        }
-
-        /* ============================================================
-               CARD GRID – TOPICS
-            ============================================================ */
-        .topic-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-            gap: 1.5rem;
-            margin: 1.2rem 0 1.8rem 0;
-        }
-
-        .topic-card {
-            background: #ffffff;
-            border: 1px solid #e9edf4;
-            border-radius: 18px;
-            padding: 1.2rem 1.5rem 1.5rem 1.5rem;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .topic-card:hover {
-            border-color: #b9d0f0;
-            box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.08);
-            transform: translateY(-2px);
-        }
-
-        .topic-header {
-            display: flex;
-            align-items: baseline;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 6px 10px;
-            margin-bottom: 0.3rem;
-        }
-
-        .topic-number {
-            font-weight: 700;
-            color: #94a3b8;
-            font-size: 0.85rem;
-            background: #f1f5f9;
-            padding: 0 10px;
-            border-radius: 20px;
-            line-height: 1.8;
-        }
-
-        .topic-title {
-            font-weight: 600;
-            font-size: 1.08rem;
-            color: #0f172a;
-            flex: 1;
-        }
-
-        .topic-title-en {
-            font-weight: 300;
-            font-size: 0.85rem;
-            color: #64748b;
-            direction: ltr;
-            display: inline-block;
-            margin-right: 6px;
-            font-style: italic;
-        }
-
-        .topic-desc {
-            font-size: 0.95rem;
-            color: #334155;
-            margin: 0.4rem 0 0.6rem 0;
-            line-height: 1.6;
-            flex: 1;
-        }
-
-        .topic-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px 18px;
-            margin-top: 0.5rem;
-            border-top: 1px dashed #e9edf4;
-            padding-top: 0.7rem;
-            font-size: 0.85rem;
-            color: #475569;
-        }
-
-        .topic-meta i {
-            width: 1.2rem;
-            color: #3b82f6;
-        }
-
-        .topic-meta span {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px 8px;
-            margin-top: 6px;
-        }
-
-        .tech-tag {
-            background: #f1f5f9;
-            padding: 0.1rem 0.7rem;
-            border-radius: 30px;
-            font-size: 0.7rem;
-            font-weight: 500;
-            color: #334155;
-            letter-spacing: 0.2px;
-        }
-
-        /* ============================================================
-               QUICK REFERENCE / SIDEBAR
-            ============================================================ */
-        .quick-ref {
-            background: #f1f5f9;
-            border-radius: 20px;
-            padding: 1.2rem 2rem;
-            margin: 1.8rem 0 2.2rem 0;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 0.8rem 1.5rem;
-        }
-
-        .quick-ref-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 500;
-        }
-
-        .quick-ref-item i {
-            color: #3b82f6;
-            font-size: 1.2rem;
-            width: 1.6rem;
-            text-align: center;
-        }
-
-        .stat-badge {
-            background: #0f172a;
-            color: white;
-            padding: 0.2rem 1.2rem;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        /* ============================================================
-               VISION / INTRO BOX
-            ============================================================ */
-        .vision-box {
-            background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
-            border-radius: 24px;
-            padding: 1.6rem 2.2rem;
-            border: 1px solid #dbeafe;
-            margin: 1.2rem 0 1.8rem 0;
-        }
-
-        .vision-box p {
-            font-size: 1.05rem;
-            color: #1e293b;
-        }
-
-        .pill-stats {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem 2rem;
-            margin-top: 0.8rem;
-        }
-
-        .pill-stat {
-            background: white;
-            padding: 0.2rem 1.5rem;
-            border-radius: 40px;
-            border: 1px solid #dbeafe;
-            font-weight: 500;
-            font-size: 0.95rem;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
-        }
-
-        .pill-stat strong {
-            color: #1d4ed8;
-            font-size: 1.2rem;
-        }
-
-        /* ============================================================
-               AREA NAVIGATION LINKS (NEW)
-            ============================================================ */
-        .area-nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem 1rem;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 2px solid #e2e8f0;
-        }
-
-        .area-nav-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: #ffffff;
-            border: 1px solid #dbeafe;
-            padding: 0.3rem 1.2rem;
-            border-radius: 40px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #1e293b;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
-        }
-
-        .area-nav-link:hover {
-            background: #2563eb;
-            border-color: #2563eb;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px -8px rgba(37, 99, 235, 0.3);
-        }
-
-        .area-nav-link i {
-            font-size: 0.9rem;
-            color: #3b82f6;
-        }
-
-        .area-nav-link:hover i {
-            color: white;
-        }
-
-        /* Color variants for each area */
-        .area-nav-link.green i {
-            color: #16a34a;
-        }
-        .area-nav-link.green:hover {
-            background: #16a34a;
-            border-color: #16a34a;
-        }
-        .area-nav-link.purple i {
-            color: #7c3aed;
-        }
-        .area-nav-link.purple:hover {
-            background: #7c3aed;
-            border-color: #7c3aed;
-        }
-        .area-nav-link.teal i {
-            color: #0d9488;
-        }
-        .area-nav-link.teal:hover {
-            background: #0d9488;
-            border-color: #0d9488;
-        }
-        .area-nav-link.amber i {
-            color: #d97706;
-        }
-        .area-nav-link.amber:hover {
-            background: #d97706;
-            border-color: #d97706;
-        }
-        .area-nav-link.red i {
-            color: #dc2626;
-        }
-        .area-nav-link.red:hover {
-            background: #dc2626;
-            border-color: #dc2626;
-        }
-
-        /* ============================================================
-               PATHWAY / ROADMAP
-            ============================================================ */
-        .pathway {
-            background: #f8fafc;
-            border-radius: 20px;
-            padding: 1.6rem 2rem;
-            margin-top: 2.8rem;
-            border: 1px solid #e2e8f0;
-        }
-
-        .pathway h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .pathway-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.2rem;
-            margin: 0.8rem 0 0.4rem 0;
-        }
-
-        .step {
-            background: white;
-            padding: 0.8rem 1.4rem;
-            border-radius: 14px;
-            border-right: 4px solid #3b82f6;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
-        }
-
-        .step strong {
-            display: block;
-            font-size: 0.95rem;
-            color: #0f172a;
-        }
-
-        .step small {
-            font-weight: 300;
-            color: #475569;
-            font-size: 0.85rem;
-        }
-
-        .criteria-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem 1.5rem;
-            margin-top: 0.8rem;
-            list-style: none;
-        }
-
-        .criteria-list li {
-            background: white;
-            padding: 0.2rem 1.2rem;
-            border-radius: 30px;
-            border: 1px solid #e2e8f0;
-            font-size: 0.85rem;
-        }
-
-        /* ============================================================
-               FOOTER
-            ============================================================ */
-        .footer {
-            margin-top: 2.8rem;
-            padding-top: 1.8rem;
-            border-top: 2px solid #e2e8f0;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            font-size: 0.9rem;
-            color: #475569;
-        }
-
-        .footer i {
-            color: #3b82f6;
-            margin-left: 6px;
-        }
-
-        /* ============================================================
-               RESPONSIVE
-            ============================================================ */
-        @media (max-width: 768px) {
-            .container {
-                padding: 1.2rem 1rem;
-            }
-
-            .main-title {
-                font-size: 1.9rem;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .topic-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .quick-ref {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 0.5rem;
-            }
-
-            .vision-box {
-                padding: 1.2rem;
-            }
-
-            .pathway-steps {
-                grid-template-columns: 1fr;
-            }
-
-            .area-nav {
-                justify-content: center;
-            }
-        }
-
-        @media print {
-            body {
-                background: white;
-                padding: 0.2in;
-            }
-            .container {
-                box-shadow: none;
-                padding: 0.5in;
-                border-radius: 0;
-            }
-            .topic-card:hover {
-                transform: none;
-                box-shadow: none;
-            }
-            .quick-ref {
-                background: #f1f5f9;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .badge-level,
-            .badge-phd,
-            .pill-stat,
-            .stat-badge {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .area-nav-link {
-                border: 1px solid #ccc;
-                background: #f9f9f9;
-            }
-            .area-nav-link:hover {
-                background: #f9f9f9 !important;
-                color: #1e293b !important;
-                transform: none !important;
-                box-shadow: none !important;
-            }
-            .area-nav-link:hover i {
-                color: #3b82f6 !important;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-
-        <!-- ============================================
-        HEADER
-        ============================================ -->
-        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
-            <div>
-                <h1 class="main-title">
-                    <i class="fas fa-microchip" style="color:#2563eb;"></i>
-                    مرکز فَهام
-                    <small>فناوری‌های هوش-بنیان در انرژی و محاسبات</small>
-                </h1>
-                <div class="subhead">
-                    نقشه جامع حوزه‌ها و موضوعات پژوهشی
-                    <span style="font-weight:400; margin-right:1rem;">—</span>
-                    <span style="font-weight:300;">راهنمای انتخاب مسیر پژوهشی و پایان‌نامه</span>
-                </div>
-            </div>
-            <div style="background:#eef2ff; padding:0.4rem 1.8rem; border-radius:60px; font-weight:600; color:#1e293b;">
-                <i class="fas fa-university"></i> دانشگاه آزاد اسلامی — واحد کرج
-            </div>
-        </div>
-
-        <!-- QUICK STATS -->
-        <div class="quick-ref">
-            <span class="quick-ref-item"><i class="fas fa-flag"></i> ۵ حوزه راهبردی</span>
-            <span class="quick-ref-item"><i class="fas fa-list"></i> ۳۷ موضوع پژوهشی</span>
-            <span class="quick-ref-item"><i class="fas fa-graduation-cap"></i> ۲ مقطع تحصیلی</span>
-            <span class="quick-ref-item"><i class="fas fa-bolt"></i> AI × Energy هسته مشترک</span>
-            <span class="stat-badge"><i class="fas fa-hashtag"></i> ۳۷ پیشنهاد</span>
-        </div>
-
-        <!-- VISION -->
-        <div class="vision-box" id="vision">
-            <p style="font-weight:500; margin-bottom:0.4rem;"><i class="fas fa-eye" style="color:#2563eb; margin-left:8px;"></i>چشم‌انداز پژوهشی</p>
-            <p>این گزارش، چارچوبی میان‌رشته‌ای برای تعریف پایان‌نامه‌ها و پروژه‌های مرکز فَهام ارائه می‌کند. محور مشترک موضوعات، پیوند هوش مصنوعی، زیرساخت محاسباتی، انرژی و سامانه‌های تصمیم‌گیر توزیع‌شده است؛ به‌گونه‌ای که نتایج پژوهش هم ارزش علمی و هم قابلیت انتقال به صنعت داشته باشند.</p>
-            <div class="pill-stats">
-                <span class="pill-stat"><i class="fas fa-circle-check" style="color:#22c55e;"></i> <strong>۵</strong> حوزه راهبردی</span>
-                <span class="pill-stat"><i class="fas fa-circle-check" style="color:#22c55e;"></i> <strong>۳۷</strong> موضوع پژوهشی</span>
-                <span class="pill-stat"><i class="fas fa-circle-check" style="color:#22c55e;"></i> <strong>۲</strong> مقطع تحصیلی</span>
-                <span class="pill-stat"><i class="fas fa-circle-check" style="color:#22c55e;"></i> <strong>AI × Energy</strong> هسته مشترک</span>
-            </div>
-            <p style="font-size:0.9rem; color:#475569; margin-top:0.6rem;">
-                <i class="fas fa-info-circle"></i> روش استفاده: هر موضوع شامل عنوان انگلیسی، شرح مسئله، کاربرد صنعتی و فناوری‌های پیشنهادی است. علامت # کنار هر عنوان، پیوند مستقیم و قابل ارجاع همان بخش را در اختیار قرار می‌دهد.
-            </p>
-
-            <!-- ============================================
-            AREA NAVIGATION LINKS (NEW)
-            ============================================ -->
-            <div class="area-nav">
-                <span style="font-weight:500; color:#475569; display:inline-flex; align-items:center; gap:4px;">
-                    <i class="fas fa-arrow-left"></i> حوزه‌های پژوهشی:
-                </span>
-                <a href="#area-green" class="area-nav-link green">
-                    <i class="fas fa-leaf"></i> ۰۱ — هوش مصنوعی سبز
-                </a>
-                <a href="#area-hetero" class="area-nav-link purple">
-                    <i class="fas fa-puzzle-piece"></i> ۰۲ — محاسبات ناهمگون
-                </a>
-                <a href="#area-hpc" class="area-nav-link teal">
-                    <i class="fas fa-network-wired"></i> ۰۳ — HPC و هوش چندعامله
-                </a>
-                <a href="#area-cps" class="area-nav-link amber">
-                    <i class="fas fa-cogs"></i> ۰۴ — سامانه‌های سایبرفیزیکی
-                </a>
-                <a href="#area-opt" class="area-nav-link red">
-                    <i class="fas fa-chart-line"></i> ۰۵ — بهینه‌سازی و کنترل
-                </a>
-            </div>
-        </div>
-
-        <!-- ============================================
-        AREA 1 – GREEN AI
-        ============================================ -->
-        <div class="section-title" id="area-green">
-            <i class="fas fa-leaf" style="color:#16a34a;"></i>
-            حوزه پژوهشی ۰۱ — هوش مصنوعی کم‌مصرف و هوش مصنوعی سبز
-            <span style="font-size:1rem; font-weight:300; color:#475569; margin-right:12px;">Green &amp; Energy-Efficient AI</span>
-        </div>
-
-        <!-- Master's -->
-        <h3 style="font-weight:500; margin:0.4rem 0 0.8rem 0; color:#1e293b;">
-            <span class="badge-level"><i class="fas fa-user-graduate"></i> کارشناسی ارشد</span>
-        </h3>
-        <div class="topic-grid">
-            <div class="topic-card">
-                <div class="topic-header">
-                    <span class="topic-number">#01</span>
-                    <span class="topic-title">زمان‌بندی هوشمند پردازش‌ها با توجه به انرژی <span class="topic-title-en">(Energy-Aware Scheduling)</span></span>
-                </div>
-                <div class="topic-desc">طراحی زمان‌بندهایی که بارهای محاسباتی را با توجه به قیمت برق، شدت کربن، محدودیت زمانی و وضعیت منابع جابه‌جا می‌کنند.</div>
-                <div class="topic-meta">
-                    <span><i class="fas fa-industry"></i> مراکز داده، ابر، پردازش لبه</span>
-                </div>
-                <div class="tech-tags">
-                    <span class="tech-tag">Python</span><span class="tech-tag">PyTorch</span><span class="tech-tag">Kubernetes</span><span class="tech-tag">Ray</span><span class="tech-tag">Prometheus</span>
-                </div>
-            </div>
-
-            <div class="topic-card">
-                <div class="topic-header">
-                    <span class="topic-number">#02</span>
-                    <span class="topic-title">کاهش مصرف انرژی شبکه‌های عصبی در هوش لبه <span class="topic-title-en">(Edge NN Energy Reduction)</span></span>
-                </div>
-                <div class="topic-desc">ترکیب کم‌دقت‌سازی، هرس، تقطیر دانش و انتخاب تطبیقی مدل برای کاهش انرژی بدون افت محسوس کیفیت.</div>
-                <div class="topic-meta">
-                    <span><i class="fas fa-industry"></i> اینترنت اشیا، دوربین هوشمند، تجهیزات همراه</span>
-                </div>
-                <div class="tech-tags">
-                    <span class="tech-tag">PyTorch</span><span class="tech-tag">ONNX</span><span class="tech-tag">TensorRT</span><span class="tech-tag">TFLite</span><span class="tech-tag">Jetson</span>
-                </div>
-            </div>
-
-            <div class="topic-card">
-                <div class="topic-header">
-                    <span class="topic-number">#03</span>
-                    <span class="topic-title">تنظیم هوشمند دقت در مدل‌های زبانی بزرگ <span class="topic-title-en">(Adaptive Precision for LLMs)</span></span>
-                </div>
-                <div class="topic-desc">انتخاب پویای دقت عددی در لایه‌ها و مراحل استنتاج برای ایجاد توازن میان کیفیت، تأخیر، حافظه و انرژی.</div>
-                <div class="topic-meta">
-                    <span><i class="fas fa-industry"></i> دستیارهای سازمانی، استنتاج محلی LLM</span>
-                </div>
-                <div class="tech-tags">
-                    <span class="tech-tag">Transformers</span><span class="tech-tag">CUDA</span><span class="tech-tag">Triton</span><span class="tech-tag">vLLM</span>
-                </div>
-            </div>
-
-            <div class="topic-card">
-                <div class="topic-header">
-                    <span class="topic-number">#04</span>
-                    <span class="topic-title">یادگیری فدرال سبز <span class="topic-title-en">(Green Federated Learning)</span></span>
-                </div>
-                <div class="topic-desc">انتخاب مشارکت‌کنندگان، فشرده‌سازی ارتباطات و تنظیم دفعات تجمیع با هدف کاهش انرژی و هزینه شبکه.</div>
-                <div class="topic-meta">
-                    <span><i class="fas fa-industry"></i> سلامت، شهر هوشمند، شبکه انرژی</span>
-                </div>
-                <div class="tech-tags">
-                    <span class="tech-tag">Flower</span><span class="tech-tag">FedML</span><span class="tech-tag">PyTorch</span><span class="tech-tag">Docker</span>
-                </div>
-            </div>
-
-            <div class="topic-card">
-                <div class="topic-header">
-                    <span class="topic-number">#05</span>
-                    <span class="topic-title">بهینه‌سازی هوشمند خنک‌کاری مرکز داده <span class="topic-title-en">(AI Data Center Cooling)</span></span>
-                </div>
-                <div class="topic-desc">پیش‌بینی بار حرارتی و کنترل تجهیزات سرمایشی با یادگیری ماشین و کنترل پیش‌بین برای کاهش PUE.</div>
-                <div class="topic-meta">
-                    <span><i class="fas fa-industry"></i> مرکز داده و زیرساخت HPC</span>
-                </div>
-                <div class="tech-tags">
-                    <span class="tech-tag">Digital Twin</span><span class="tech-tag">RL</span><span class="tech-tag">MPC</span><span class="tech-tag">Grafana</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- PhD -->
-        <h3 style="font-weight:500; margin:1.2rem 0 0.8rem 0; color:#1e293b;">
-            <span class="badge-level badge-phd"><i class="fas fa-flask"></i> دکتری</span>
-        </h3>
-        <div class="topic-grid">
-            <div class="topic-card">
-                <div class="topic-header">
-                    <span class="topic-number">#06</span>
-                    <span class="topic-title">زیرساخت هوش مصنوعی خودبهینه‌ساز و کربن‌خنثی <span class="topic-title-en">(Carbon-Neutral AI Infra)</span></span>
-                </div>
-                <div class="topic-desc">معماری حلقه‌بسته برای مشاهده، پیش‌بینی و کنترل منابع محاسباتی، انرژی و کربن در مقیاس زیرساخت.</div>
-                <div class="topic-meta">
-                    <span><i class="fas fa-industry"></i> ابر سبز، پردیس هوشمند، HPC</span>
-                </div>
-                <div class="tech-tags">
-                    <span class="tech-tag">Kubernetes</span><span class="tech-tag">Ray</span><span class="tech-tag">Slurm</span><span class="tech-tag">RL</span><span class="tech-tag">Carbon APIs</span>
-                </div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-header">
-                    <span class="topic-number">#07</span>
-                    <span class="topic-title">بهینه‌سازی چندهدفه مدل‌های پایه پایدار <span class="topic-title-en">(Multi-objective Foundation Models)</span></span>
-                </div>
-                <div class="topic-desc">بهینه‌سازی هم‌زمان دقت، انرژی، کربن، هزینه، تأخیر و عدالت در آموزش و استنتاج مدل‌های پایه.</div>
-                <div class="topic-meta">
-                    <span><i class="fas fa-industry"></i> مدل‌های مولد و سرویس‌های AI</span>
-                </div>
-                <div class="tech-tags">
-                    <span class="tech-tag">PyTorch</span><span class="tech-tag">DeepSpeed</span><span class="tech-tag">Optuna</span><span class="tech-tag">Pareto</span>
-                </div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-header">
-                    <span class="topic-number">#08</span>
-                    <span class="topic-title">مدل‌سازی انرژی شتاب‌دهنده‌ها با مدل‌های فیزیکی <span class="topic-title-en">(Physics-informed Energy Modeling)</span></span>
-                </div>
-                <div class="topic-desc">ترکیب داده‌های تله‌متری و قیود فیزیکی برای تخمین قابل‌تعمیم توان و انرژی GPU، NPU و FPGA.</div>
-                <div class="topic-meta">
-                    <span><i class="fas fa-industry"></i> طراحی شتاب‌دهنده و مدیریت توان</span>
-                </div>
-                <div class="tech-tags">
-                    <span class="tech-tag">PINN</span><span class="tech-tag">CUDA</span><span class="tech-tag">FPGA</span><span class="tech-tag">NVML</span><span class="tech-tag">RAPL</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- ============================================
-        AREA 2 – HETEROGENEOUS
-        ============================================ -->
-        <div class="section-title" id="area-hetero">
-            <i class="fas fa-puzzle-piece" style="color:#7c3aed;"></i>
-            حوزه پژوهشی ۰۲ — محاسبات ناهمگون و چندمعماری
-            <span style="font-size:1rem; font-weight:300; color:#475569; margin-right:12px;">Heterogeneous &amp; Multi-Architecture</span>
-        </div>
-
-        <h3 style="font-weight:500; margin:0.4rem 0 0.8rem 0;"><span class="badge-level"><i class="fas fa-user-graduate"></i> کارشناسی ارشد</span></h3>
-        <div class="topic-grid">
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#09</span><span class="topic-title">تقسیم هوشمند بار بین CPU، GPU و NPU <span class="topic-title-en">(Workload Partitioning)</span></span></div>
-                <div class="topic-desc">یادگیری سیاست تخصیص اپراتورها و وظایف با توجه به زمان اجرا، انرژی، حافظه و تراکم منابع.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> سامانه‌های نهفته و مراکز داده</span></div>
-                <div class="tech-tags"><span class="tech-tag">TVM</span><span class="tech-tag">ONNX Runtime</span><span class="tech-tag">CUDA</span><span class="tech-tag">OpenCL</span></div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#10</span><span class="topic-title">شتاب‌دهی ترنسفورمر با FPGA <span class="topic-title-en">(FPGA Transformer)</span></span></div>
-                <div class="topic-desc">طراحی و ارزیابی هسته‌های محاسباتی کم‌دقت برای attention و ضرب ماتریسی با تمرکز بر کارایی بر وات.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> Edge AI و شتاب‌دهنده سفارشی</span></div>
-                <div class="tech-tags"><span class="tech-tag">Vitis HLS</span><span class="tech-tag">Verilog</span><span class="tech-tag">FPGA</span><span class="tech-tag">PyTorch</span></div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#11</span><span class="topic-title">استنتاج مشارکتی لبه و ابر <span class="topic-title-en">(Edge–Cloud Inference)</span></span></div>
-                <div class="topic-desc">شکستن تطبیقی مدل و انتقال فعال‌سازی‌ها بین لبه و ابر تحت محدودیت پهنای باند و تأخیر.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> ویدئوی هوشمند و IoT صنعتی</span></div>
-                <div class="tech-tags"><span class="tech-tag">Docker</span><span class="tech-tag">Kubernetes</span><span class="tech-tag">gRPC</span><span class="tech-tag">ONNX</span></div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#12</span><span class="topic-title">محیط اجرای تطبیقی برای سیستم‌های نهفته <span class="topic-title-en">(Adaptive Embedded Runtime)</span></span></div>
-                <div class="topic-desc">محیط اجرایی که بر پایه وضعیت حرارتی، باتری و کیفیت سرویس، مدل و سخت‌افزار مناسب را انتخاب می‌کند.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> ربات، پهپاد و تجهیزات همراه</span></div>
-                <div class="tech-tags"><span class="tech-tag">Linux</span><span class="tech-tag">C++</span><span class="tech-tag">TensorRT</span><span class="tech-tag">TFLite</span></div>
-            </div>
-        </div>
-
-        <h3 style="font-weight:500; margin:1.2rem 0 0.8rem 0;"><span class="badge-level badge-phd"><i class="fas fa-flask"></i> دکتری</span></h3>
-        <div class="topic-grid">
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#13</span><span class="topic-title">محیط اجرای هوشمند محاسبات ناهمگون <span class="topic-title-en">(Intelligent Heterogeneous Runtime)</span></span></div>
-                <div class="topic-desc">طراحی runtime خودآموز برای نگاشت، زمان‌بندی و بازپیکربندی وظایف روی معماری‌های متنوع.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> ابر، HPC و سامانه‌های ترکیبی</span></div>
-                <div class="tech-tags"><span class="tech-tag">LLVM</span><span class="tech-tag">MLIR</span><span class="tech-tag">TVM</span><span class="tech-tag">RL</span></div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#14</span><span class="topic-title">هم‌طراحی سخت‌افزار و نرم‌افزار با یادگیری تقویتی <span class="topic-title-en">(RL HW–SW Co-design)</span></span></div>
-                <div class="topic-desc">جست‌وجوی مشترک معماری سخت‌افزار، نگاشت مدل و پارامترهای اجرا در فضای طراحی بزرگ.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> تراشه‌های AI و شتاب‌دهنده‌ها</span></div>
-                <div class="tech-tags"><span class="tech-tag">OpenROAD</span><span class="tech-tag">Verilog</span><span class="tech-tag">RL</span><span class="tech-tag">NAS</span></div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#15</span><span class="topic-title">اجرای مقیاس‌پذیر مدل‌های پایه روی معماری‌های مختلف <span class="topic-title-en">(Scalable Foundation Models)</span></span></div>
-                <div class="topic-desc">ایجاد لایه انتزاع و کامپایل برای توزیع آموزش و استنتاج مدل‌های بزرگ روی منابع ناهمگون.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> زیرساخت مدل‌های پایه</span></div>
-                <div class="tech-tags"><span class="tech-tag">DeepSpeed</span><span class="tech-tag">Triton</span><span class="tech-tag">XLA</span><span class="tech-tag">MLIR</span></div>
-            </div>
-        </div>
-
-        <!-- ============================================
-        AREA 3 – DISTRIBUTED / HPC
-        ============================================ -->
-        <div class="section-title" id="area-hpc">
-            <i class="fas fa-network-wired" style="color:#0d9488;"></i>
-            حوزه پژوهشی ۰۳ — محاسبات توزیع‌شده، HPC و هوش چندعامله
-            <span style="font-size:1rem; font-weight:300; color:#475569; margin-right:12px;">Distributed Computing, HPC &amp; Multi-Agent AI</span>
-        </div>
-
-        <h3 style="font-weight:500; margin:0.4rem 0 0.8rem 0;"><span class="badge-level"><i class="fas fa-user-graduate"></i> کارشناسی ارشد</span></h3>
-        <div class="topic-grid">
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#16</span><span class="topic-title">زمان‌بندی خوشه‌های GPU با یادگیری تقویتی چندعامله <span class="topic-title-en">(MARL GPU Scheduling)</span></span></div>
-                <div class="topic-desc">عامل‌های هماهنگ برای تخصیص GPU با هدف کاهش زمان انتظار، انرژی و تداخل میان کارها.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> خوشه‌های آموزشی و ابر GPU</span></div>
-                <div class="tech-tags"><span class="tech-tag">Slurm</span><span class="tech-tag">Kubernetes</span><span class="tech-tag">Ray RLlib</span><span class="tech-tag">CUDA</span></div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#17</span><span class="topic-title">آموزش توزیع‌شده با ارتباطات هوشمند <span class="topic-title-en">(Comm.-Aware Training)</span></span></div>
-                <div class="topic-desc">تنظیم توپولوژی، فشرده‌سازی گرادیان و هم‌پوشانی ارتباط و محاسبه بر اساس وضعیت شبکه.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> آموزش مدل‌های بزرگ</span></div>
-                <div class="tech-tags"><span class="tech-tag">PyTorch Distributed</span><span class="tech-tag">NCCL</span><span class="tech-tag">MPI</span></div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#18</span><span class="topic-title">مدیریت خودکار منابع ابررایانه‌ها <span class="topic-title-en">(Auto HPC Resource Mgmt)</span></span></div>
-                <div class="topic-desc">پیش‌بینی صف، خرابی و مصرف توان برای کنترل پیش‌نگر منابع و تحقق کیفیت سرویس.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> مراکز HPC و پژوهشگاه‌ها</span></div>
-                <div class="tech-tags"><span class="tech-tag">Slurm</span><span class="tech-tag">Prometheus</span><span class="tech-tag">ML</span><span class="tech-tag">Digital Twin</span></div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#19</span><span class="topic-title">تخصیص منابع لبه با الگوریتم‌های جمعی <span class="topic-title-en">(Swarm Edge Allocation)</span></span></div>
-                <div class="topic-desc">استفاده از بهینه‌سازی جمعی و عامل‌های محلی برای مهاجرت وظایف و تخصیص منابع.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> MEC، IoT و مخابرات</span></div>
-                <div class="tech-tags"><span class="tech-tag">Python</span><span class="tech-tag">SimPy</span><span class="tech-tag">Docker</span><span class="tech-tag">PSO/ACO</span></div>
-            </div>
-        </div>
-
-        <h3 style="font-weight:500; margin:1.2rem 0 0.8rem 0;"><span class="badge-level badge-phd"><i class="fas fa-flask"></i> دکتری</span></h3>
-        <div class="topic-grid">
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#20</span><span class="topic-title">مراکز داده خودمختار مبتنی بر هوش مصنوعی <span class="topic-title-en">(AI-native Data Centers)</span></span></div>
-                <div class="topic-desc">چارچوب چندعامله برای پایش، تصمیم‌گیری و کنترل خودکار محاسبات، شبکه، انرژی و سرمایش.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> مرکز داده نسل آینده</span></div>
-                <div class="tech-tags"><span class="tech-tag">MAS</span><span class="tech-tag">RL</span><span class="tech-tag">Kubernetes</span><span class="tech-tag">Digital Twin</span></div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#21</span><span class="topic-title">یادگیری فدرال چندعامله برای ابررایانه‌های توزیع‌شده <span class="topic-title-en">(Multi-Agent FL)</span></span></div>
-                <div class="topic-desc">هماهنگی خوشه‌های جغرافیایی با داده‌های خصوصی و منابع ناهمگون برای یادگیری مقیاس‌پذیر.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> همکاری‌های علمی و سلامت</span></div>
-                <div class="tech-tags"><span class="tech-tag">Federated Learning</span><span class="tech-tag">MPI</span><span class="tech-tag">Ray</span><span class="tech-tag">Privacy</span></div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#22</span><span class="topic-title">زیرساخت‌های هوش مصنوعی خودترمیم‌شونده <span class="topic-title-en">(Self-Healing AI Infra)</span></span></div>
-                <div class="topic-desc">تشخیص ناهنجاری، تحلیل علت ریشه‌ای و بازیابی خودکار سرویس‌ها با عامل‌های هوشمند.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> ابر و زیرساخت حیاتی</span></div>
-                <div class="tech-tags"><span class="tech-tag">AIOps</span><span class="tech-tag">LLM Agents</span><span class="tech-tag">Kubernetes</span><span class="tech-tag">eBPF</span></div>
-            </div>
-        </div>
-
-        <!-- ============================================
-        AREA 4 – CYBER-PHYSICAL
-        ============================================ -->
-        <div class="section-title" id="area-cps">
-            <i class="fas fa-cogs" style="color:#d97706;"></i>
-            حوزه پژوهشی ۰۴ — هوش مصنوعی در سیستم‌های سایبرفیزیکی
-            <span style="font-size:1rem; font-weight:300; color:#475569; margin-right:12px;">AI for Cyber-Physical Systems</span>
-        </div>
-
-        <h4 style="font-weight:500; margin:0.2rem 0 0.6rem 0; color:#1e293b;"><i class="fas fa-bolt" style="color:#d97706;"></i> شبکه‌های هوشمند برق</h4>
-        <div class="topic-grid">
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#23</span><span class="topic-title">دستیار هوشمند اپراتور مبتنی بر LLM <span class="topic-title-en">(LLM Operator Assistant)</span></span></div>
-                <div class="topic-desc">بازیابی دانش فنی، خلاصه‌سازی رخدادها و پیشنهاد اقدام با کنترل ایمنی و قابلیت استناد.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> اتاق کنترل و بهره‌برداری شبکه</span></div>
-                <div class="tech-tags"><span class="tech-tag">LLM</span><span class="tech-tag">RAG</span><span class="tech-tag">Vector DB</span><span class="tech-tag">IEC 61850</span></div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#24</span><span class="topic-title">بازار هوشمند معاملات انرژی <span class="topic-title-en">(Intelligent Energy Market)</span></span></div>
-                <div class="topic-desc">طراحی عامل‌های پیشنهاددهنده و سازوکار بازار برای انرژی تجدیدپذیر، ذخیره‌ساز و پاسخگویی بار.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> بازار برق و ریزشبکه</span></div>
-                <div class="tech-tags"><span class="tech-tag">Game Theory</span><span class="tech-tag">MARL</span><span class="tech-tag">Blockchain</span></div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#25</span><span class="topic-title">دوقلوی دیجیتال هوشمند شبکه توزیع <span class="topic-title-en">(Digital Twin Distribution)</span></span></div>
-                <div class="topic-desc">همگام‌سازی مدل شبکه با اندازه‌گیری‌ها برای تخمین حالت، پیش‌بینی و تحلیل سناریو.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> شرکت توزیع و پردیس سبز</span></div>
-                <div class="tech-tags"><span class="tech-tag">OpenDSS</span><span class="tech-tag">pandapower</span><span class="tech-tag">IoT</span><span class="tech-tag">ML</span></div>
-            </div>
-        </div>
-
-        <h4 style="font-weight:500; margin:0.8rem 0 0.6rem 0; color:#1e293b;"><i class="fas fa-robot" style="color:#d97706;"></i> رباتیک</h4>
-        <div class="topic-grid">
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#26</span><span class="topic-title">برنامه‌ریزی مسیر چندرباته کم‌مصرف <span class="topic-title-en">(Energy-efficient Multi-Robot Path)</span></span></div>
-                <div class="topic-desc">برنامه‌ریزی هماهنگ مسیر با قیود برخورد، باتری، زمان مأموریت و ایستگاه شارژ.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> انبار، پایش و امداد</span></div>
-                <div class="tech-tags"><span class="tech-tag">ROS2</span><span class="tech-tag">Gazebo</span><span class="tech-tag">MAPF</span><span class="tech-tag">Optimization</span></div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#27</span><span class="topic-title">مدل‌های پایه در ربات‌های همکاری‌کننده <span class="topic-title-en">(Foundation Models for Cobots)</span></span></div>
-                <div class="topic-desc">ترکیب ادراک، زبان و کنترل برای تعامل ایمن انسان و ربات و اجرای دستورهای پیچیده.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> کوبات‌ها و تولید هوشمند</span></div>
-                <div class="tech-tags"><span class="tech-tag">ROS2</span><span class="tech-tag">VLM</span><span class="tech-tag">LLM</span><span class="tech-tag">Simulation</span></div>
-            </div>
-        </div>
-
-        <h4 style="font-weight:500; margin:0.8rem 0 0.6rem 0; color:#1e293b;"><i class="fas fa-car" style="color:#d97706;"></i> حمل‌ونقل هوشمند</h4>
-        <div class="topic-grid">
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#28</span><span class="topic-title">کنترل هوشمند چراغ‌های راهنمایی <span class="topic-title-en">(Adaptive Traffic Signal)</span></span></div>
-                <div class="topic-desc">کنترل چندتقاطعی بر اساس تقاضای لحظه‌ای با یادگیری تقویتی و رعایت عدالت ترافیکی.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> شهر هوشمند</span></div>
-                <div class="tech-tags"><span class="tech-tag">SUMO</span><span class="tech-tag">MARL</span><span class="tech-tag">TraCI</span><span class="tech-tag">Python</span></div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#29</span><span class="topic-title">همکاری هوشمند خودرو و زیرساخت شهری <span class="topic-title-en">(V2I Cooperation)</span></span></div>
-                <div class="topic-desc">همکاری V2X برای افزایش ایمنی، روانی ترافیک و کارایی انرژی خودروهای برقی.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> حمل‌ونقل متصل و خودران</span></div>
-                <div class="tech-tags"><span class="tech-tag">V2X</span><span class="tech-tag">CARLA</span><span class="tech-tag">Edge AI</span><span class="tech-tag">5G</span></div>
-            </div>
-        </div>
-
-        <!-- ============================================
-        AREA 5 – OPTIMIZATION / GAME THEORY
-        ============================================ -->
-        <div class="section-title" id="area-opt">
-            <i class="fas fa-chart-line" style="color:#dc2626;"></i>
-            حوزه پژوهشی ۰۵ — بهینه‌سازی، کنترل و نظریه بازی مبتنی بر AI
-            <span style="font-size:1rem; font-weight:300; color:#475569; margin-right:12px;">AI-based Optimization, Control &amp; Game Theory</span>
-        </div>
-
-        <h3 style="font-weight:500; margin:0.4rem 0 0.8rem 0;"><span class="badge-level"><i class="fas fa-user-graduate"></i> کارشناسی ارشد</span></h3>
-        <div class="topic-grid">
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#30</span><span class="topic-title">بهینه‌سازی سامانه‌های انرژی با یادگیری ماشین <span class="topic-title-en">(ML for Energy Optimization)</span></span></div>
-                <div class="topic-desc">ساخت مدل‌های جانشین و پیش‌بینی‌گر برای تسریع برنامه‌ریزی و بهره‌برداری سامانه انرژی.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> ریزشبکه و مدیریت انرژی</span></div>
-                <div class="tech-tags"><span class="tech-tag">Python</span><span class="tech-tag">Pyomo</span><span class="tech-tag">Gurobi</span><span class="tech-tag">PyTorch</span></div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#31</span><span class="topic-title">یادگیری تقویتی قابل‌تفسیر برای کنترل ریزشبکه <span class="topic-title-en">(Explainable RL Microgrid)</span></span></div>
-                <div class="topic-desc">کنترل ذخیره‌ساز و منابع تولید همراه با توضیح تصمیم، قیود ایمنی و تضمین عملکرد.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> EMS و پردیس سبز</span></div>
-                <div class="tech-tags"><span class="tech-tag">Safe RL</span><span class="tech-tag">XAI</span><span class="tech-tag">OpenDSS</span><span class="tech-tag">Gymnasium</span></div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#32</span><span class="topic-title">بهینه‌سازی چندعامله رایانش لبه با نظریه بازی <span class="topic-title-en">(Game-theoretic Edge)</span></span></div>
-                <div class="topic-desc">مدل‌سازی رقابت و همکاری کاربران و ارائه‌دهندگان برای offloading، قیمت‌گذاری و منابع.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> MEC و شبکه‌های نسل جدید</span></div>
-                <div class="tech-tags"><span class="tech-tag">Game Theory</span><span class="tech-tag">VI</span><span class="tech-tag">Distributed Optimization</span></div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#33</span><span class="topic-title">تقریب سیاست کنترل بهینه با شبکه عصبی <span class="topic-title-en">(Neural Optimal Control)</span></span></div>
-                <div class="topic-desc">یادگیری سیاست سریع از حل‌کننده‌های کنترل بهینه با حفظ قیود و پایداری.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> خودرو برقی، ربات و انرژی</span></div>
-                <div class="tech-tags"><span class="tech-tag">MPC</span><span class="tech-tag">PINN</span><span class="tech-tag">PyTorch</span><span class="tech-tag">CasADi</span></div>
-            </div>
-        </div>
-
-        <h3 style="font-weight:500; margin:1.2rem 0 0.8rem 0;"><span class="badge-level badge-phd"><i class="fas fa-flask"></i> دکتری</span></h3>
-        <div class="topic-grid">
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#34</span><span class="topic-title">بازی‌های استکلبرگ تجمیعی برای مدیریت منابع <span class="topic-title-en">(Aggregative Stackelberg)</span></span></div>
-                <div class="topic-desc">تحلیل و طراحی الگوریتم‌های توزیع‌شده رهبر–پیرو با اثرات تجمیعی و قیود شبکه‌ای.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> انرژی، ابر و شارژ خودرو برقی</span></div>
-                <div class="tech-tags"><span class="tech-tag">VI</span><span class="tech-tag">Monotone Operators</span><span class="tech-tag">MATLAB/Python</span></div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#35</span><span class="topic-title">بهینه‌سازی چندسطحی زیرساخت‌های هوش مصنوعی <span class="topic-title-en">(Multilevel AI Optimization)</span></span></div>
-                <div class="topic-desc">هماهنگی تصمیم‌های ظرفیت، زمان‌بندی و کنترل در سطوح راهبردی، عملیاتی و لحظه‌ای.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> مرکز داده و HPC</span></div>
-                <div class="tech-tags"><span class="tech-tag">Bilevel Optimization</span><span class="tech-tag">Decomposition</span><span class="tech-tag">HPC</span></div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#36</span><span class="topic-title">ترکیب یادگیری تقویتی و نامساوی‌های تغییری <span class="topic-title-en">(RL with Variational Inequalities)</span></span></div>
-                <div class="topic-desc">ایجاد روش‌های یادگیری برای تعادل‌های مقید و بازی‌های پویا با تضمین‌های نظری.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> بازار انرژی و سامانه‌های چندعامله</span></div>
-                <div class="tech-tags"><span class="tech-tag">RL</span><span class="tech-tag">VI</span><span class="tech-tag">Primal–Dual Methods</span></div>
-            </div>
-            <div class="topic-card">
-                <div class="topic-header"><span class="topic-number">#37</span><span class="topic-title">دوقلوهای دیجیتال مبتنی بر نظریه بازی <span class="topic-title-en">(Game-theoretic Digital Twins)</span></span></div>
-                <div class="topic-desc">مدل هم‌تکاملی سامانه فیزیکی و عامل‌های تصمیم‌گیر برای پیش‌بینی رفتار و کنترل سیاستی.</div>
-                <div class="topic-meta"><span><i class="fas fa-industry"></i> شبکه هوشمند، حمل‌ونقل و صنعت</span></div>
-                <div class="tech-tags"><span class="tech-tag">Digital Twin</span><span class="tech-tag">MAS</span><span class="tech-tag">Game Theory</span></div>
-            </div>
-        </div>
-
-        <!-- ============================================
-        PATHWAY / ROADMAP
-        ============================================ -->
-        <div class="pathway">
-            <h3><i class="fas fa-route" style="color:#2563eb;"></i> مسیر پیشنهادی تعریف و اجرای پایان‌نامه</h3>
-            <div class="pathway-steps">
-                <div class="step"><strong>۱. انتخاب مسئله</strong> <small>تعیین شکاف علمی، ذی‌نفع صنعتی و معیارهای موفقیت.</small></div>
-                <div class="step"><strong>۲. ساخت خط مبنا</strong> <small>مرور نظام‌مند، انتخاب داده و بازتولید روش مرجع.</small></div>
-                <div class="step"><strong>۳. توسعه نوآوری</strong> <small>طراحی الگوریتم، تحلیل نظری و پیاده‌سازی قابل تکرار.</small></div>
-                <div class="step"><strong>۴. ارزیابی و انتقال</strong> <small>آزمون مقیاس‌پذیری، انرژی، هزینه و آماده‌سازی مقاله یا نمونه صنعتی.</small></div>
-            </div>
-            <div style="margin-top:1rem;">
-                <p style="font-weight:500; margin-bottom:0.2rem;"><i class="fas fa-clipboard-list"></i> معیارهای توصیه‌شده برای ارزیابی:</p>
-                <ul class="criteria-list">
-                    <li>دقت و کیفیت خروجی</li><li>زمان اجرا</li><li>مقیاس‌پذیری</li><li>مصرف انرژی</li>
-                    <li>انتشار کربن</li><li>هزینه کل مالکیت</li><li>پایداری و تاب‌آوری</li>
-                    <li>قابلیت تفسیر</li><li>حریم خصوصی</li><li>امکان بازتولید نتایج</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- ============================================
-        FOOTER
-        ============================================ -->
-        <div class="footer">
-            <div>
-                <i class="fas fa-microchip"></i> مرکز فَهام — فناوری‌های هوش-بنیان در انرژی و محاسبات
-            </div>
-            <div>
-                <i class="fas fa-print"></i> نسخه HTML مستقل 
-            </div>
-        </div>
-
-    </div>
-    <!-- end container -->
-</body>
-</html>
+<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="گزارش موضوعات پژوهشی مرکز فهام در هوش مصنوعی، انرژی و محاسبات"><title>نقشه موضوعات پژوهشی مرکز فَهام</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&family=Inter:wght@400;600;700&display=swap');
+:root{--ink:#172033;--muted:#637083;--paper:#f5f7fb;--nav:#102a43;--line:#e1e7ef;--accent:#08a6a6;--shadow:0 14px 40px rgba(16,42,67,.09)}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:28px}body{margin:0;background:var(--paper);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.85}[lang=en]{font-family:Inter,Arial,sans-serif;direction:ltr}a{color:inherit}.hero{background:radial-gradient(circle at 10% 10%,#176b87 0,transparent 32%),linear-gradient(135deg,#102a43,#12355b 58%,#095b68);color:white;padding:64px max(6vw,24px) 48px;position:relative;overflow:hidden}.hero:after{content:'';position:absolute;width:340px;height:340px;border:1px solid #ffffff28;border-radius:50%;left:-80px;bottom:-190px;box-shadow:0 0 0 55px #ffffff08,0 0 0 110px #ffffff07}.badge{display:inline-flex;padding:7px 14px;border:1px solid #ffffff45;border-radius:99px;background:#ffffff12;font-size:.88rem}.hero h1{font-size:clamp(2rem,5vw,4.4rem);line-height:1.25;margin:22px 0 10px;max-width:900px}.hero .lead{font-size:1.15rem;color:#dceaf3;max-width:880px}.hero-meta{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}.hero-meta span{background:#fff;color:#15344e;padding:8px 14px;border-radius:8px;font-size:.9rem;font-weight:600}.layout{display:grid;grid-template-columns:280px minmax(0,1fr);gap:34px;max-width:1500px;margin:auto;padding:30px}.sidebar{position:sticky;top:18px;align-self:start;background:white;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow);max-height:calc(100vh - 36px);overflow:auto}.sidebar strong{display:block;margin:3px 8px 12px}.sidebar a{display:flex;text-decoration:none;align-items:flex-start;gap:9px;padding:9px;border-radius:9px;color:#425269;font-size:.9rem;line-height:1.5}.sidebar a:hover{background:#eef6f8;color:#075e67}.sidebar a span{background:#e6f5f5;color:#087c7c;padding:0 6px;border-radius:5px;font-family:Inter}.search{width:100%;border:1px solid var(--line);padding:10px 12px;border-radius:9px;font:inherit;margin-bottom:12px;outline:none}.search:focus{border-color:var(--accent);box-shadow:0 0 0 3px #08a6a61a}main{min-width:0}.intro,.roadmap,.research-area{background:white;border-radius:20px;border:1px solid var(--line);box-shadow:var(--shadow);margin-bottom:30px;padding:clamp(22px,4vw,42px)}.intro h2,.roadmap h2{color:#12355b}.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:24px 0}.stat{padding:18px;border-radius:13px;background:#f4f8fc;border:1px solid #e4ebf3}.stat b{display:block;font:700 1.65rem Inter;color:#087c7c}.note{background:#eef8f7;border-right:4px solid #0aa0a0;padding:15px 18px;border-radius:10px}.section-head{display:flex;align-items:center;gap:18px;border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:25px}.section-icon{width:62px;height:62px;border-radius:16px;display:grid;place-items:center;font-size:1.85rem;background:var(--light);flex:none}.section-head h2{margin:2px 0;font-size:clamp(1.4rem,2.5vw,2.2rem);color:var(--theme)}.section-head p{margin:0;color:var(--muted);font-size:.9rem}.eyebrow{font-size:.8rem;color:var(--theme);font-weight:700}.anchor{margin-right:auto;text-decoration:none;color:#a9b2bf;font-family:Inter;font-weight:700}.anchor:hover{color:var(--theme)}.degree>h3{display:inline-block;color:white;background:var(--theme);padding:6px 17px;border-radius:8px;font-size:1rem;margin:10px 0 16px}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px;margin-bottom:25px}.topic-card{border:1px solid var(--line);border-top:4px solid var(--theme);border-radius:14px;padding:19px;background:#fff;transition:.2s}.topic-card:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(15,40,65,.1)}.topic-card:target,.research-area:target{outline:3px solid color-mix(in srgb,var(--theme) 30%,transparent)}.topic-card header{display:flex;gap:12px;align-items:flex-start}.topic-card h4{margin:0;font-size:1.05rem;line-height:1.55}.topic-card header p{margin:4px 0 0;color:var(--theme);font-size:.78rem;font-weight:600}.topic-no{background:var(--light);color:var(--theme);border-radius:7px;padding:3px 8px;font:700 .8rem Inter;flex:none}.desc{color:#4f5d70;font-size:.92rem}.meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.meta div{background:#f7f9fc;border-radius:9px;padding:10px 12px;font-size:.82rem}.meta b,.meta span{display:block}.meta b{color:var(--theme);margin-bottom:3px}.theme-green{--theme:#2e7d32;--light:#eaf7ea}.theme-purple{--theme:#6938b6;--light:#f2eafb}.theme-blue{--theme:#1261a0;--light:#e8f3fc}.theme-orange{--theme:#d66c08;--light:#fff1e1}.theme-red{--theme:#bd3030;--light:#fdecec}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;counter-reset:step}.step{background:#f6f8fb;padding:18px;border-radius:12px;border-bottom:3px solid #08a6a6}.step:before{counter-increment:step;content:counter(step);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#12355b;color:white;font:700 .8rem Inter;margin-bottom:8px}footer{background:#102a43;color:#dbe8f1;text-align:center;padding:35px 20px}.toolbar{position:fixed;left:20px;bottom:20px;display:flex;gap:8px;z-index:4}button{border:0;border-radius:10px;background:#12355b;color:white;padding:10px 13px;font:inherit;cursor:pointer;box-shadow:var(--shadow)}.hidden{display:none!important}
+@media(max-width:1050px){.layout{grid-template-columns:1fr}.sidebar{position:relative;top:0;max-height:none}.sidebar nav{display:grid;grid-template-columns:repeat(2,1fr)}}@media(max-width:700px){.layout{padding:14px}.cards,.stat-grid,.steps,.meta{grid-template-columns:1fr}.sidebar nav{grid-template-columns:1fr}.hero{padding-top:42px}.section-head{align-items:flex-start}}@media print{body{background:#fff;font-size:10pt}.hero{print-color-adjust:exact;-webkit-print-color-adjust:exact}.layout{display:block;padding:0}.sidebar,.toolbar{display:none}.research-area,.intro,.roadmap{box-shadow:none;break-before:page;border:0}.topic-card{break-inside:avoid}.cards{grid-template-columns:1fr 1fr}a{text-decoration:none}}
+</style></head><body>
+<header class="hero" id="top"><span class="badge">مرکز فناوری‌های هوش بنیان در انرژی و محاسبات — فَهام</span><h2>نقشه جامع حوزه‌ها و موضوعات پژوهشی</h2><p class="lead">راهنمای انتخاب مسیر پژوهشی و پایان‌نامه در هوش مصنوعی سبز، محاسبات ناهمگون، HPC، سیستم‌های سایبرفیزیکی، بهینه‌سازی و کنترل</p><div class="hero-meta"><span>دانشگاه آزاد اسلامی — واحد کرج</span><span>37 موضوع پیشنهادی</span><span>کارشناسی ارشد و دکتری</span></div></header>
+<div class="layout"><aside class="sidebar"><strong>فهرست و ارجاع سریع</strong><input id="search" class="search" placeholder="جست‌وجوی موضوع یا فناوری…" aria-label="جست‌وجو"><nav><a href="#overview"><span>◈</span>چشم‌انداز و ساختار</a><a href="#green-ai"><span>01</span>هوش مصنوعی کم‌مصرف و هوش مصنوعی سبز</a><a href="#heterogeneous"><span>02</span>محاسبات ناهمگون و چندمعماری</a><a href="#hpc-mas"><span>03</span>محاسبات توزیع‌شده، HPC و هوش چندعامله</a><a href="#cps"><span>04</span>هوش مصنوعی در سیستم‌های سایبرفیزیکی</a><a href="#optimization"><span>05</span>بهینه‌سازی، کنترل و نظریه بازی مبتنی بر AI</a><a href="#roadmap"><span>→</span>نقشه راه اجرا</a></nav></aside><main>
+<section class="intro" id="overview"><h2>چشم‌انداز پژوهشی</h2><p>این گزارش، چارچوبی میان‌رشته‌ای برای تعریف پایان‌نامه‌ها و پروژه‌های مرکز فَهام ارائه می‌کند. محور مشترک موضوعات، پیوند <strong>هوش مصنوعی، زیرساخت محاسباتی، انرژی و سامانه‌های تصمیم‌گیر توزیع‌شده</strong> است؛ به‌گونه‌ای که نتایج پژوهش هم ارزش علمی و هم قابلیت انتقال به صنعت داشته باشند.</p><div class="stat-grid"><div class="stat"><b>5</b>حوزه راهبردی</div><div class="stat"><b>37</b>موضوع پژوهشی</div><div class="stat"><b>2</b>مقطع تحصیلی</div><div class="stat"><b>AI × Energy</b>هسته مشترک</div></div><div class="note"><strong>روش استفاده:</strong> هر موضوع شامل عنوان انگلیسی، شرح مسئله، کاربرد صنعتی و فناوری‌های پیشنهادی است. علامت <b>#</b> کنار هر عنوان، پیوند مستقیم و قابل ارجاع همان بخش را در اختیار قرار می‌دهد.</div></section>
+<section class="research-area theme-green" id="green-ai"><div class="section-head"><div class="section-icon">🌿</div><div><span class="eyebrow">حوزه پژوهشی 01</span><h2>هوش مصنوعی کم‌مصرف و هوش مصنوعی سبز</h2><p lang="en">Green &amp; Energy-Efficient AI</p></div><a class="anchor big" href="#green-ai">#</a></div><section class="degree"><h3>کارشناسی ارشد</h3><div class="cards"><article class="topic-card" id="topic-01" data-search="زمان‌بندی هوشمند پردازش‌ها با توجه به انرژی Energy-Aware Intelligent Workload Scheduling طراحی زمان‌بندهایی که بارهای محاسباتی را با توجه به قیمت برق، شدت کربن، محدودیت زمانی و وضعیت منابع جابه‌جا می‌کنند. مراکز داده، ابر، پردازش لبه Python، PyTorch، Kubernetes، Ray، Prometheus">
+<header><span class="topic-no">01</span><div><h4>زمان‌بندی هوشمند پردازش‌ها با توجه به انرژی</h4><p lang="en">Energy-Aware Intelligent Workload Scheduling</p></div><a class="anchor" href="#topic-01" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">طراحی زمان‌بندهایی که بارهای محاسباتی را با توجه به قیمت برق، شدت کربن، محدودیت زمانی و وضعیت منابع جابه‌جا می‌کنند.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>مراکز داده، ابر، پردازش لبه</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>Python، PyTorch، Kubernetes، Ray، Prometheus</span></div></div></article><article class="topic-card" id="topic-02" data-search="کاهش مصرف انرژی شبکه‌های عصبی در هوش لبه Energy Reduction of Neural Networks in Edge AI ترکیب کم‌دقت‌سازی، هرس، تقطیر دانش و انتخاب تطبیقی مدل برای کاهش انرژی بدون افت محسوس کیفیت. اینترنت اشیا، دوربین هوشمند، تجهیزات همراه PyTorch، ONNX، TensorRT، TFLite، Jetson">
+<header><span class="topic-no">02</span><div><h4>کاهش مصرف انرژی شبکه‌های عصبی در هوش لبه</h4><p lang="en">Energy Reduction of Neural Networks in Edge AI</p></div><a class="anchor" href="#topic-02" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">ترکیب کم‌دقت‌سازی، هرس، تقطیر دانش و انتخاب تطبیقی مدل برای کاهش انرژی بدون افت محسوس کیفیت.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>اینترنت اشیا، دوربین هوشمند، تجهیزات همراه</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>PyTorch، ONNX، TensorRT، TFLite، Jetson</span></div></div></article><article class="topic-card" id="topic-03" data-search="تنظیم هوشمند دقت در مدل‌های زبانی بزرگ Adaptive Precision Tuning for LLMs انتخاب پویای دقت عددی در لایه‌ها و مراحل استنتاج برای ایجاد توازن میان کیفیت، تأخیر، حافظه و انرژی. دستیارهای سازمانی، استنتاج محلی LLM Transformers، CUDA، Triton، vLLM">
+<header><span class="topic-no">03</span><div><h4>تنظیم هوشمند دقت در مدل‌های زبانی بزرگ</h4><p lang="en">Adaptive Precision Tuning for LLMs</p></div><a class="anchor" href="#topic-03" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">انتخاب پویای دقت عددی در لایه‌ها و مراحل استنتاج برای ایجاد توازن میان کیفیت، تأخیر، حافظه و انرژی.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>دستیارهای سازمانی، استنتاج محلی LLM</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>Transformers، CUDA، Triton، vLLM</span></div></div></article><article class="topic-card" id="topic-04" data-search="یادگیری فدرال سبز Green Federated Learning انتخاب مشارکت‌کنندگان، فشرده‌سازی ارتباطات و تنظیم دفعات تجمیع با هدف کاهش انرژی و هزینه شبکه. سلامت، شهر هوشمند، شبکه انرژی Flower، FedML، PyTorch، Docker">
+<header><span class="topic-no">04</span><div><h4>یادگیری فدرال سبز</h4><p lang="en">Green Federated Learning</p></div><a class="anchor" href="#topic-04" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">انتخاب مشارکت‌کنندگان، فشرده‌سازی ارتباطات و تنظیم دفعات تجمیع با هدف کاهش انرژی و هزینه شبکه.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>سلامت، شهر هوشمند، شبکه انرژی</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>Flower، FedML، PyTorch، Docker</span></div></div></article><article class="topic-card" id="topic-05" data-search="بهینه‌سازی هوشمند خنک‌کاری مرکز داده AI-based Data Center Cooling Optimization پیش‌بینی بار حرارتی و کنترل تجهیزات سرمایشی با یادگیری ماشین و کنترل پیش‌بین برای کاهش PUE. مرکز داده و زیرساخت HPC Digital Twin، RL، MPC، Grafana">
+<header><span class="topic-no">05</span><div><h4>بهینه‌سازی هوشمند خنک‌کاری مرکز داده</h4><p lang="en">AI-based Data Center Cooling Optimization</p></div><a class="anchor" href="#topic-05" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">پیش‌بینی بار حرارتی و کنترل تجهیزات سرمایشی با یادگیری ماشین و کنترل پیش‌بین برای کاهش PUE.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>مرکز داده و زیرساخت HPC</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>Digital Twin، RL، MPC، Grafana</span></div></div></article></div></section><section class="degree"><h3>دکتری</h3><div class="cards"><article class="topic-card" id="topic-06" data-search="زیرساخت هوش مصنوعی خودبهینه‌ساز و کربن‌خنثی Self-Optimizing Carbon-Neutral AI Infrastructure معماری حلقه‌بسته برای مشاهده، پیش‌بینی و کنترل منابع محاسباتی، انرژی و کربن در مقیاس زیرساخت. ابر سبز، پردیس هوشمند، HPC Kubernetes، Ray، Slurm، RL، Carbon APIs">
+<header><span class="topic-no">06</span><div><h4>زیرساخت هوش مصنوعی خودبهینه‌ساز و کربن‌خنثی</h4><p lang="en">Self-Optimizing Carbon-Neutral AI Infrastructure</p></div><a class="anchor" href="#topic-06" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">معماری حلقه‌بسته برای مشاهده، پیش‌بینی و کنترل منابع محاسباتی، انرژی و کربن در مقیاس زیرساخت.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>ابر سبز، پردیس هوشمند، HPC</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>Kubernetes، Ray، Slurm، RL، Carbon APIs</span></div></div></article><article class="topic-card" id="topic-07" data-search="بهینه‌سازی چندهدفه مدل‌های پایه پایدار Multi-objective Optimization of Sustainable Foundation Models بهینه‌سازی هم‌زمان دقت، انرژی، کربن، هزینه، تأخیر و عدالت در آموزش و استنتاج مدل‌های پایه. مدل‌های مولد و سرویس‌های AI PyTorch، DeepSpeed، Optuna، Pareto methods">
+<header><span class="topic-no">07</span><div><h4>بهینه‌سازی چندهدفه مدل‌های پایه پایدار</h4><p lang="en">Multi-objective Optimization of Sustainable Foundation Models</p></div><a class="anchor" href="#topic-07" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">بهینه‌سازی هم‌زمان دقت، انرژی، کربن، هزینه، تأخیر و عدالت در آموزش و استنتاج مدل‌های پایه.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>مدل‌های مولد و سرویس‌های AI</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>PyTorch، DeepSpeed، Optuna، Pareto methods</span></div></div></article><article class="topic-card" id="topic-08" data-search="مدل‌سازی انرژی شتاب‌دهنده‌ها با مدل‌های فیزیکی Physics-informed Energy Modeling of Accelerators ترکیب داده‌های تله‌متری و قیود فیزیکی برای تخمین قابل‌تعمیم توان و انرژی GPU، NPU و FPGA. طراحی شتاب‌دهنده و مدیریت توان PINN، CUDA، FPGA، NVML، RAPL">
+<header><span class="topic-no">08</span><div><h4>مدل‌سازی انرژی شتاب‌دهنده‌ها با مدل‌های فیزیکی</h4><p lang="en">Physics-informed Energy Modeling of Accelerators</p></div><a class="anchor" href="#topic-08" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">ترکیب داده‌های تله‌متری و قیود فیزیکی برای تخمین قابل‌تعمیم توان و انرژی GPU، NPU و FPGA.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>طراحی شتاب‌دهنده و مدیریت توان</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>PINN، CUDA، FPGA، NVML، RAPL</span></div></div></article></div></section></section><section class="research-area theme-purple" id="heterogeneous"><div class="section-head"><div class="section-icon">🧩</div><div><span class="eyebrow">حوزه پژوهشی 02</span><h2>محاسبات ناهمگون و چندمعماری</h2><p lang="en">Heterogeneous &amp; Multi-Architecture Computing</p></div><a class="anchor big" href="#heterogeneous">#</a></div><section class="degree"><h3>کارشناسی ارشد</h3><div class="cards"><article class="topic-card" id="topic-09" data-search="تقسیم هوشمند بار بین CPU، GPU و NPU Intelligent Workload Partitioning across CPU/GPU/NPU یادگیری سیاست تخصیص اپراتورها و وظایف با توجه به زمان اجرا، انرژی، حافظه و تراکم منابع. سامانه‌های نهفته و مراکز داده TVM، ONNX Runtime، CUDA، OpenCL">
+<header><span class="topic-no">09</span><div><h4>تقسیم هوشمند بار بین CPU، GPU و NPU</h4><p lang="en">Intelligent Workload Partitioning across CPU/GPU/NPU</p></div><a class="anchor" href="#topic-09" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">یادگیری سیاست تخصیص اپراتورها و وظایف با توجه به زمان اجرا، انرژی، حافظه و تراکم منابع.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>سامانه‌های نهفته و مراکز داده</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>TVM، ONNX Runtime، CUDA، OpenCL</span></div></div></article><article class="topic-card" id="topic-10" data-search="شتاب‌دهی ترنسفورمر با FPGA FPGA Acceleration of Transformers طراحی و ارزیابی هسته‌های محاسباتی کم‌دقت برای attention و ضرب ماتریسی با تمرکز بر کارایی بر وات. Edge AI و شتاب‌دهنده سفارشی Vitis HLS، Verilog، FPGA، PyTorch">
+<header><span class="topic-no">10</span><div><h4>شتاب‌دهی ترنسفورمر با FPGA</h4><p lang="en">FPGA Acceleration of Transformers</p></div><a class="anchor" href="#topic-10" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">طراحی و ارزیابی هسته‌های محاسباتی کم‌دقت برای attention و ضرب ماتریسی با تمرکز بر کارایی بر وات.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>Edge AI و شتاب‌دهنده سفارشی</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>Vitis HLS، Verilog، FPGA، PyTorch</span></div></div></article><article class="topic-card" id="topic-11" data-search="استنتاج مشارکتی لبه و ابر Collaborative Edge–Cloud Inference شکستن تطبیقی مدل و انتقال فعال‌سازی‌ها بین لبه و ابر تحت محدودیت پهنای باند و تأخیر. ویدئوی هوشمند و IoT صنعتی Docker، Kubernetes، gRPC، ONNX">
+<header><span class="topic-no">11</span><div><h4>استنتاج مشارکتی لبه و ابر</h4><p lang="en">Collaborative Edge–Cloud Inference</p></div><a class="anchor" href="#topic-11" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">شکستن تطبیقی مدل و انتقال فعال‌سازی‌ها بین لبه و ابر تحت محدودیت پهنای باند و تأخیر.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>ویدئوی هوشمند و IoT صنعتی</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>Docker، Kubernetes، gRPC، ONNX</span></div></div></article><article class="topic-card" id="topic-12" data-search="محیط اجرای تطبیقی برای سیستم‌های نهفته Adaptive Runtime for Embedded Systems محیط اجرایی که بر پایه وضعیت حرارتی، باتری و کیفیت سرویس، مدل و سخت‌افزار مناسب را انتخاب می‌کند. ربات، پهپاد و تجهیزات همراه Linux، C++، TensorRT، TFLite">
+<header><span class="topic-no">12</span><div><h4>محیط اجرای تطبیقی برای سیستم‌های نهفته</h4><p lang="en">Adaptive Runtime for Embedded Systems</p></div><a class="anchor" href="#topic-12" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">محیط اجرایی که بر پایه وضعیت حرارتی، باتری و کیفیت سرویس، مدل و سخت‌افزار مناسب را انتخاب می‌کند.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>ربات، پهپاد و تجهیزات همراه</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>Linux، C++، TensorRT، TFLite</span></div></div></article></div></section><section class="degree"><h3>دکتری</h3><div class="cards"><article class="topic-card" id="topic-13" data-search="محیط اجرای هوشمند محاسبات ناهمگون Intelligent Runtime for Heterogeneous Computing طراحی runtime خودآموز برای نگاشت، زمان‌بندی و بازپیکربندی وظایف روی معماری‌های متنوع. ابر، HPC و سامانه‌های ترکیبی LLVM، MLIR، TVM، RL">
+<header><span class="topic-no">13</span><div><h4>محیط اجرای هوشمند محاسبات ناهمگون</h4><p lang="en">Intelligent Runtime for Heterogeneous Computing</p></div><a class="anchor" href="#topic-13" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">طراحی runtime خودآموز برای نگاشت، زمان‌بندی و بازپیکربندی وظایف روی معماری‌های متنوع.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>ابر، HPC و سامانه‌های ترکیبی</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>LLVM، MLIR، TVM، RL</span></div></div></article><article class="topic-card" id="topic-14" data-search="هم‌طراحی سخت‌افزار و نرم‌افزار با یادگیری تقویتی RL-based Hardware–Software Co-design جست‌وجوی مشترک معماری سخت‌افزار، نگاشت مدل و پارامترهای اجرا در فضای طراحی بزرگ. تراشه‌های AI و شتاب‌دهنده‌ها OpenROAD، Verilog، RL، NAS">
+<header><span class="topic-no">14</span><div><h4>هم‌طراحی سخت‌افزار و نرم‌افزار با یادگیری تقویتی</h4><p lang="en">RL-based Hardware–Software Co-design</p></div><a class="anchor" href="#topic-14" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">جست‌وجوی مشترک معماری سخت‌افزار، نگاشت مدل و پارامترهای اجرا در فضای طراحی بزرگ.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>تراشه‌های AI و شتاب‌دهنده‌ها</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>OpenROAD، Verilog، RL، NAS</span></div></div></article><article class="topic-card" id="topic-15" data-search="اجرای مقیاس‌پذیر مدل‌های پایه روی معماری‌های مختلف Scalable Foundation Models across Architectures ایجاد لایه انتزاع و کامپایل برای توزیع آموزش و استنتاج مدل‌های بزرگ روی منابع ناهمگون. زیرساخت مدل‌های پایه DeepSpeed، Triton، XLA، MLIR">
+<header><span class="topic-no">15</span><div><h4>اجرای مقیاس‌پذیر مدل‌های پایه روی معماری‌های مختلف</h4><p lang="en">Scalable Foundation Models across Architectures</p></div><a class="anchor" href="#topic-15" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">ایجاد لایه انتزاع و کامپایل برای توزیع آموزش و استنتاج مدل‌های بزرگ روی منابع ناهمگون.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>زیرساخت مدل‌های پایه</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>DeepSpeed، Triton، XLA، MLIR</span></div></div></article></div></section></section><section class="research-area theme-blue" id="hpc-mas"><div class="section-head"><div class="section-icon">🖧</div><div><span class="eyebrow">حوزه پژوهشی 03</span><h2>محاسبات توزیع‌شده، HPC و هوش چندعامله</h2><p lang="en">Distributed Computing, HPC &amp; Multi-Agent AI</p></div><a class="anchor big" href="#hpc-mas">#</a></div><section class="degree"><h3>کارشناسی ارشد</h3><div class="cards"><article class="topic-card" id="topic-16" data-search="زمان‌بندی خوشه‌های GPU با یادگیری تقویتی چندعامله Multi-Agent RL for GPU Cluster Scheduling عامل‌های هماهنگ برای تخصیص GPU با هدف کاهش زمان انتظار، انرژی و تداخل میان کارها. خوشه‌های آموزشی و ابر GPU Slurm، Kubernetes، Ray RLlib، CUDA">
+<header><span class="topic-no">16</span><div><h4>زمان‌بندی خوشه‌های GPU با یادگیری تقویتی چندعامله</h4><p lang="en">Multi-Agent RL for GPU Cluster Scheduling</p></div><a class="anchor" href="#topic-16" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">عامل‌های هماهنگ برای تخصیص GPU با هدف کاهش زمان انتظار، انرژی و تداخل میان کارها.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>خوشه‌های آموزشی و ابر GPU</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>Slurm، Kubernetes، Ray RLlib، CUDA</span></div></div></article><article class="topic-card" id="topic-17" data-search="آموزش توزیع‌شده با ارتباطات هوشمند Communication-Aware Distributed Training تنظیم توپولوژی، فشرده‌سازی گرادیان و هم‌پوشانی ارتباط و محاسبه بر اساس وضعیت شبکه. آموزش مدل‌های بزرگ PyTorch Distributed، NCCL، MPI">
+<header><span class="topic-no">17</span><div><h4>آموزش توزیع‌شده با ارتباطات هوشمند</h4><p lang="en">Communication-Aware Distributed Training</p></div><a class="anchor" href="#topic-17" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">تنظیم توپولوژی، فشرده‌سازی گرادیان و هم‌پوشانی ارتباط و محاسبه بر اساس وضعیت شبکه.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>آموزش مدل‌های بزرگ</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>PyTorch Distributed، NCCL، MPI</span></div></div></article><article class="topic-card" id="topic-18" data-search="مدیریت خودکار منابع ابررایانه‌ها Autonomous Supercomputer Resource Management پیش‌بینی صف، خرابی و مصرف توان برای کنترل پیش‌نگر منابع و تحقق کیفیت سرویس. مراکز HPC و پژوهشگاه‌ها Slurm، Prometheus، ML، Digital Twin">
+<header><span class="topic-no">18</span><div><h4>مدیریت خودکار منابع ابررایانه‌ها</h4><p lang="en">Autonomous Supercomputer Resource Management</p></div><a class="anchor" href="#topic-18" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">پیش‌بینی صف، خرابی و مصرف توان برای کنترل پیش‌نگر منابع و تحقق کیفیت سرویس.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>مراکز HPC و پژوهشگاه‌ها</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>Slurm، Prometheus، ML، Digital Twin</span></div></div></article><article class="topic-card" id="topic-19" data-search="تخصیص منابع لبه با الگوریتم‌های جمعی Swarm-based Edge Resource Allocation استفاده از بهینه‌سازی جمعی و عامل‌های محلی برای مهاجرت وظایف و تخصیص منابع. MEC، IoT و مخابرات Python، SimPy، Docker، PSO/ACO">
+<header><span class="topic-no">19</span><div><h4>تخصیص منابع لبه با الگوریتم‌های جمعی</h4><p lang="en">Swarm-based Edge Resource Allocation</p></div><a class="anchor" href="#topic-19" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">استفاده از بهینه‌سازی جمعی و عامل‌های محلی برای مهاجرت وظایف و تخصیص منابع.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>MEC، IoT و مخابرات</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>Python، SimPy، Docker، PSO/ACO</span></div></div></article></div></section><section class="degree"><h3>دکتری</h3><div class="cards"><article class="topic-card" id="topic-20" data-search="مراکز داده خودمختار مبتنی بر هوش مصنوعی AI-native Autonomous Data Centers چارچوب چندعامله برای پایش، تصمیم‌گیری و کنترل خودکار محاسبات، شبکه، انرژی و سرمایش. مرکز داده نسل آینده MAS، RL، Kubernetes، Digital Twin">
+<header><span class="topic-no">20</span><div><h4>مراکز داده خودمختار مبتنی بر هوش مصنوعی</h4><p lang="en">AI-native Autonomous Data Centers</p></div><a class="anchor" href="#topic-20" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">چارچوب چندعامله برای پایش، تصمیم‌گیری و کنترل خودکار محاسبات، شبکه، انرژی و سرمایش.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>مرکز داده نسل آینده</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>MAS، RL، Kubernetes، Digital Twin</span></div></div></article><article class="topic-card" id="topic-21" data-search="یادگیری فدرال چندعامله برای ابررایانه‌های توزیع‌شده Multi-Agent Federated Learning for Distributed Supercomputers هماهنگی خوشه‌های جغرافیایی با داده‌های خصوصی و منابع ناهمگون برای یادگیری مقیاس‌پذیر. همکاری‌های علمی و سلامت Federated Learning، MPI، Ray، Privacy">
+<header><span class="topic-no">21</span><div><h4>یادگیری فدرال چندعامله برای ابررایانه‌های توزیع‌شده</h4><p lang="en">Multi-Agent Federated Learning for Distributed Supercomputers</p></div><a class="anchor" href="#topic-21" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">هماهنگی خوشه‌های جغرافیایی با داده‌های خصوصی و منابع ناهمگون برای یادگیری مقیاس‌پذیر.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>همکاری‌های علمی و سلامت</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>Federated Learning، MPI، Ray، Privacy</span></div></div></article><article class="topic-card" id="topic-22" data-search="زیرساخت‌های هوش مصنوعی خودترمیم‌شونده Self-Healing AI Infrastructure تشخیص ناهنجاری، تحلیل علت ریشه‌ای و بازیابی خودکار سرویس‌ها با عامل‌های هوشمند. ابر و زیرساخت حیاتی AIOps، LLM Agents، Kubernetes، eBPF">
+<header><span class="topic-no">22</span><div><h4>زیرساخت‌های هوش مصنوعی خودترمیم‌شونده</h4><p lang="en">Self-Healing AI Infrastructure</p></div><a class="anchor" href="#topic-22" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">تشخیص ناهنجاری، تحلیل علت ریشه‌ای و بازیابی خودکار سرویس‌ها با عامل‌های هوشمند.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>ابر و زیرساخت حیاتی</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>AIOps، LLM Agents، Kubernetes، eBPF</span></div></div></article></div></section></section><section class="research-area theme-orange" id="cps"><div class="section-head"><div class="section-icon">⚙️</div><div><span class="eyebrow">حوزه پژوهشی 04</span><h2>هوش مصنوعی در سیستم‌های سایبرفیزیکی</h2><p lang="en">AI for Cyber-Physical Systems</p></div><a class="anchor big" href="#cps">#</a></div><section class="degree"><h3>شبکه‌های هوشمند برق</h3><div class="cards"><article class="topic-card" id="topic-23" data-search="دستیار هوشمند اپراتور مبتنی بر LLM LLM-based Intelligent Operator Assistant بازیابی دانش فنی، خلاصه‌سازی رخدادها و پیشنهاد اقدام با کنترل ایمنی و قابلیت استناد. اتاق کنترل و بهره‌برداری شبکه LLM، RAG، Vector DB، IEC 61850">
+<header><span class="topic-no">23</span><div><h4>دستیار هوشمند اپراتور مبتنی بر LLM</h4><p lang="en">LLM-based Intelligent Operator Assistant</p></div><a class="anchor" href="#topic-23" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">بازیابی دانش فنی، خلاصه‌سازی رخدادها و پیشنهاد اقدام با کنترل ایمنی و قابلیت استناد.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>اتاق کنترل و بهره‌برداری شبکه</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>LLM، RAG، Vector DB، IEC 61850</span></div></div></article><article class="topic-card" id="topic-24" data-search="بازار هوشمند معاملات انرژی Intelligent Energy Trading Market طراحی عامل‌های پیشنهاددهنده و سازوکار بازار برای انرژی تجدیدپذیر، ذخیره‌ساز و پاسخگویی بار. بازار برق و ریزشبکه Game Theory، MARL، Blockchain">
+<header><span class="topic-no">24</span><div><h4>بازار هوشمند معاملات انرژی</h4><p lang="en">Intelligent Energy Trading Market</p></div><a class="anchor" href="#topic-24" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">طراحی عامل‌های پیشنهاددهنده و سازوکار بازار برای انرژی تجدیدپذیر، ذخیره‌ساز و پاسخگویی بار.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>بازار برق و ریزشبکه</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>Game Theory، MARL، Blockchain</span></div></div></article><article class="topic-card" id="topic-25" data-search="دوقلوی دیجیتال هوشمند شبکه توزیع Intelligent Digital Twin for Distribution Grids همگام‌سازی مدل شبکه با اندازه‌گیری‌ها برای تخمین حالت، پیش‌بینی و تحلیل سناریو. شرکت توزیع و پردیس سبز OpenDSS، pandapower، IoT، ML">
+<header><span class="topic-no">25</span><div><h4>دوقلوی دیجیتال هوشمند شبکه توزیع</h4><p lang="en">Intelligent Digital Twin for Distribution Grids</p></div><a class="anchor" href="#topic-25" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">همگام‌سازی مدل شبکه با اندازه‌گیری‌ها برای تخمین حالت، پیش‌بینی و تحلیل سناریو.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>شرکت توزیع و پردیس سبز</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>OpenDSS، pandapower، IoT، ML</span></div></div></article></div></section><section class="degree"><h3>رباتیک</h3><div class="cards"><article class="topic-card" id="topic-26" data-search="برنامه‌ریزی مسیر چندرباته کم‌مصرف Energy-efficient Multi-Robot Path Planning برنامه‌ریزی هماهنگ مسیر با قیود برخورد، باتری، زمان مأموریت و ایستگاه شارژ. انبار، پایش و امداد ROS2، Gazebo، MAPF، Optimization">
+<header><span class="topic-no">26</span><div><h4>برنامه‌ریزی مسیر چندرباته کم‌مصرف</h4><p lang="en">Energy-efficient Multi-Robot Path Planning</p></div><a class="anchor" href="#topic-26" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">برنامه‌ریزی هماهنگ مسیر با قیود برخورد، باتری، زمان مأموریت و ایستگاه شارژ.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>انبار، پایش و امداد</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>ROS2، Gazebo، MAPF، Optimization</span></div></div></article><article class="topic-card" id="topic-27" data-search="مدل‌های پایه در ربات‌های همکاری‌کننده Foundation Models for Collaborative Robots ترکیب ادراک، زبان و کنترل برای تعامل ایمن انسان و ربات و اجرای دستورهای پیچیده. کوبات‌ها و تولید هوشمند ROS2، VLM، LLM، Simulation">
+<header><span class="topic-no">27</span><div><h4>مدل‌های پایه در ربات‌های همکاری‌کننده</h4><p lang="en">Foundation Models for Collaborative Robots</p></div><a class="anchor" href="#topic-27" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">ترکیب ادراک، زبان و کنترل برای تعامل ایمن انسان و ربات و اجرای دستورهای پیچیده.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>کوبات‌ها و تولید هوشمند</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>ROS2، VLM، LLM، Simulation</span></div></div></article></div></section><section class="degree"><h3>حمل‌ونقل هوشمند</h3><div class="cards"><article class="topic-card" id="topic-28" data-search="کنترل هوشمند چراغ‌های راهنمایی Intelligent Traffic Signal Control کنترل چندتقاطعی بر اساس تقاضای لحظه‌ای با یادگیری تقویتی و رعایت عدالت ترافیکی. شهر هوشمند SUMO، MARL، TraCI، Python">
+<header><span class="topic-no">28</span><div><h4>کنترل هوشمند چراغ‌های راهنمایی</h4><p lang="en">Intelligent Traffic Signal Control</p></div><a class="anchor" href="#topic-28" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">کنترل چندتقاطعی بر اساس تقاضای لحظه‌ای با یادگیری تقویتی و رعایت عدالت ترافیکی.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>شهر هوشمند</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>SUMO، MARL، TraCI، Python</span></div></div></article><article class="topic-card" id="topic-29" data-search="همکاری هوشمند خودرو و زیرساخت شهری Intelligent Vehicle–Infrastructure Cooperation همکاری V2X برای افزایش ایمنی، روانی ترافیک و کارایی انرژی خودروهای برقی. حمل‌ونقل متصل و خودران V2X، CARLA، Edge AI، 5G">
+<header><span class="topic-no">29</span><div><h4>همکاری هوشمند خودرو و زیرساخت شهری</h4><p lang="en">Intelligent Vehicle–Infrastructure Cooperation</p></div><a class="anchor" href="#topic-29" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">همکاری V2X برای افزایش ایمنی، روانی ترافیک و کارایی انرژی خودروهای برقی.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>حمل‌ونقل متصل و خودران</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>V2X، CARLA، Edge AI، 5G</span></div></div></article></div></section></section><section class="research-area theme-red" id="optimization"><div class="section-head"><div class="section-icon">📈</div><div><span class="eyebrow">حوزه پژوهشی 05</span><h2>بهینه‌سازی، کنترل و نظریه بازی مبتنی بر AI</h2><p lang="en">AI-based Optimization, Control &amp; Game Theory</p></div><a class="anchor big" href="#optimization">#</a></div><section class="degree"><h3>کارشناسی ارشد</h3><div class="cards"><article class="topic-card" id="topic-30" data-search="بهینه‌سازی سامانه‌های انرژی با یادگیری ماشین Machine Learning for Energy System Optimization ساخت مدل‌های جانشین و پیش‌بینی‌گر برای تسریع برنامه‌ریزی و بهره‌برداری سامانه انرژی. ریزشبکه و مدیریت انرژی Python، Pyomo، Gurobi، PyTorch">
+<header><span class="topic-no">30</span><div><h4>بهینه‌سازی سامانه‌های انرژی با یادگیری ماشین</h4><p lang="en">Machine Learning for Energy System Optimization</p></div><a class="anchor" href="#topic-30" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">ساخت مدل‌های جانشین و پیش‌بینی‌گر برای تسریع برنامه‌ریزی و بهره‌برداری سامانه انرژی.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>ریزشبکه و مدیریت انرژی</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>Python، Pyomo، Gurobi، PyTorch</span></div></div></article><article class="topic-card" id="topic-31" data-search="یادگیری تقویتی قابل‌تفسیر برای کنترل ریزشبکه Explainable RL for Microgrid Control کنترل ذخیره‌ساز و منابع تولید همراه با توضیح تصمیم، قیود ایمنی و تضمین عملکرد. EMS و پردیس سبز Safe RL، XAI، OpenDSS، Gymnasium">
+<header><span class="topic-no">31</span><div><h4>یادگیری تقویتی قابل‌تفسیر برای کنترل ریزشبکه</h4><p lang="en">Explainable RL for Microgrid Control</p></div><a class="anchor" href="#topic-31" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">کنترل ذخیره‌ساز و منابع تولید همراه با توضیح تصمیم، قیود ایمنی و تضمین عملکرد.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>EMS و پردیس سبز</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>Safe RL، XAI، OpenDSS، Gymnasium</span></div></div></article><article class="topic-card" id="topic-32" data-search="بهینه‌سازی چندعامله رایانش لبه با نظریه بازی Game-theoretic Multi-Agent Edge Optimization مدل‌سازی رقابت و همکاری کاربران و ارائه‌دهندگان برای offloading، قیمت‌گذاری و منابع. MEC و شبکه‌های نسل جدید Game Theory، VI، Distributed Optimization">
+<header><span class="topic-no">32</span><div><h4>بهینه‌سازی چندعامله رایانش لبه با نظریه بازی</h4><p lang="en">Game-theoretic Multi-Agent Edge Optimization</p></div><a class="anchor" href="#topic-32" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">مدل‌سازی رقابت و همکاری کاربران و ارائه‌دهندگان برای offloading، قیمت‌گذاری و منابع.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>MEC و شبکه‌های نسل جدید</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>Game Theory، VI، Distributed Optimization</span></div></div></article><article class="topic-card" id="topic-33" data-search="تقریب سیاست کنترل بهینه با شبکه عصبی Neural Approximation of Optimal Control Policies یادگیری سیاست سریع از حل‌کننده‌های کنترل بهینه با حفظ قیود و پایداری. خودرو برقی، ربات و انرژی MPC، PINN، PyTorch، CasADi">
+<header><span class="topic-no">33</span><div><h4>تقریب سیاست کنترل بهینه با شبکه عصبی</h4><p lang="en">Neural Approximation of Optimal Control Policies</p></div><a class="anchor" href="#topic-33" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">یادگیری سیاست سریع از حل‌کننده‌های کنترل بهینه با حفظ قیود و پایداری.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>خودرو برقی، ربات و انرژی</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>MPC، PINN، PyTorch، CasADi</span></div></div></article></div></section><section class="degree"><h3>دکتری</h3><div class="cards"><article class="topic-card" id="topic-34" data-search="بازی‌های استکلبرگ تجمیعی برای مدیریت منابع Aggregative Stackelberg Games for Resource Management تحلیل و طراحی الگوریتم‌های توزیع‌شده رهبر–پیرو با اثرات تجمیعی و قیود شبکه‌ای. انرژی، ابر و شارژ خودرو برقی VI، Monotone Operators، MATLAB/Python">
+<header><span class="topic-no">34</span><div><h4>بازی‌های استکلبرگ تجمیعی برای مدیریت منابع</h4><p lang="en">Aggregative Stackelberg Games for Resource Management</p></div><a class="anchor" href="#topic-34" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">تحلیل و طراحی الگوریتم‌های توزیع‌شده رهبر–پیرو با اثرات تجمیعی و قیود شبکه‌ای.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>انرژی، ابر و شارژ خودرو برقی</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>VI، Monotone Operators، MATLAB/Python</span></div></div></article><article class="topic-card" id="topic-35" data-search="بهینه‌سازی چندسطحی زیرساخت‌های هوش مصنوعی Multilevel Optimization of AI Infrastructure هماهنگی تصمیم‌های ظرفیت، زمان‌بندی و کنترل در سطوح راهبردی، عملیاتی و لحظه‌ای. مرکز داده و HPC Bilevel Optimization، Decomposition، HPC">
+<header><span class="topic-no">35</span><div><h4>بهینه‌سازی چندسطحی زیرساخت‌های هوش مصنوعی</h4><p lang="en">Multilevel Optimization of AI Infrastructure</p></div><a class="anchor" href="#topic-35" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">هماهنگی تصمیم‌های ظرفیت، زمان‌بندی و کنترل در سطوح راهبردی، عملیاتی و لحظه‌ای.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>مرکز داده و HPC</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>Bilevel Optimization، Decomposition، HPC</span></div></div></article><article class="topic-card" id="topic-36" data-search="ترکیب یادگیری تقویتی و نامساوی‌های تغییری Reinforcement Learning with Variational Inequalities ایجاد روش‌های یادگیری برای تعادل‌های مقید و بازی‌های پویا با تضمین‌های نظری. بازار انرژی و سامانه‌های چندعامله RL، VI، Primal–Dual Methods">
+<header><span class="topic-no">36</span><div><h4>ترکیب یادگیری تقویتی و نامساوی‌های تغییری</h4><p lang="en">Reinforcement Learning with Variational Inequalities</p></div><a class="anchor" href="#topic-36" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">ایجاد روش‌های یادگیری برای تعادل‌های مقید و بازی‌های پویا با تضمین‌های نظری.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>بازار انرژی و سامانه‌های چندعامله</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>RL، VI، Primal–Dual Methods</span></div></div></article><article class="topic-card" id="topic-37" data-search="دوقلوهای دیجیتال مبتنی بر نظریه بازی Game-theoretic Digital Twins مدل هم‌تکاملی سامانه فیزیکی و عامل‌های تصمیم‌گیر برای پیش‌بینی رفتار و کنترل سیاستی. شبکه هوشمند، حمل‌ونقل و صنعت Digital Twin، MAS، Game Theory">
+<header><span class="topic-no">37</span><div><h4>دوقلوهای دیجیتال مبتنی بر نظریه بازی</h4><p lang="en">Game-theoretic Digital Twins</p></div><a class="anchor" href="#topic-37" aria-label="پیوند مستقیم">#</a></header>
+<p class="desc">مدل هم‌تکاملی سامانه فیزیکی و عامل‌های تصمیم‌گیر برای پیش‌بینی رفتار و کنترل سیاستی.</p>
+<div class="meta"><div><b>کاربرد صنعتی</b><span>شبکه هوشمند، حمل‌ونقل و صنعت</span></div><div><b>فناوری‌ها و مهارت‌ها</b><span>Digital Twin، MAS، Game Theory</span></div></div></article></div></section></section>
+<section class="roadmap" id="roadmap"><h2>مسیر پیشنهادی تعریف و اجرای پایان‌نامه</h2><div class="steps"><div class="step"><b>انتخاب مسئله</b><br>تعیین شکاف علمی، ذی‌نفع صنعتی و معیارهای موفقیت.</div><div class="step"><b>ساخت خط مبنا</b><br>مرور نظام‌مند، انتخاب داده و بازتولید روش مرجع.</div><div class="step"><b>توسعه نوآوری</b><br>طراحی الگوریتم، تحلیل نظری و پیاده‌سازی قابل تکرار.</div><div class="step"><b>ارزیابی و انتقال</b><br>آزمون مقیاس‌پذیری، انرژی، هزینه و آماده‌سازی مقاله یا نمونه صنعتی.</div></div><h3>معیارهای توصیه‌شده برای ارزیابی</h3><p>دقت و کیفیت خروجی، زمان اجرا، مقیاس‌پذیری، مصرف انرژی، انتشار کربن، هزینه کل مالکیت، پایداری و تاب‌آوری، قابلیت تفسیر، حریم خصوصی و امکان بازتولید نتایج.</p></section></main></div>
+<div class="toolbar"><button onclick="window.print()">چاپ / PDF</button><button onclick="location.href='#top'">↑ بالا</button></div><footer><b>مرکز فَهام — فناوری‌های هوش بنیان در انرژی و محاسبات</b><br><small>نسخه 1.0</small></footer>
+<script>const q=document.getElementById('search');q.addEventListener('input',()=>{const s=q.value.trim().toLowerCase();document.querySelectorAll('.topic-card').forEach(c=>c.classList.toggle('hidden',s&&!c.dataset.search.toLowerCase().includes(s)));document.querySelectorAll('.degree').forEach(d=>d.classList.toggle('hidden',s&&![...d.querySelectorAll('.topic-card')].some(c=>!c.classList.contains('hidden'))));document.querySelectorAll('.research-area').forEach(a=>a.classList.toggle('hidden',s&&![...a.querySelectorAll('.topic-card')].some(c=>!c.classList.contains('hidden'))));});</script></body></html>
