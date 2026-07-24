@@ -1,264 +1,516 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amir Noori · Academic Profile</title>
+  <!-- Font Awesome (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  <title>Amir Noori</title>
-  <meta name="description" content="Amir Noori is an Assistant Professor in the Electrical and Computer Engineering Department at the Azad University of Karaj.">
+    body {
+      background: #f5f7fa;
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+      color: #1e2a3a;
+      line-height: 1.5;
+      padding: 2rem 1rem;
+    }
 
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://localhost:4000/">
-  <link rel="alternate" type="application/rss+xml" title="Amir Noori" href="http://localhost:4000/feed.xml">
-  <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
-</head>
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.15);
+      padding: 2.5rem 2.8rem;
+      transition: all 0.2s;
+    }
 
-<body>
+    /* header / name */
+    .profile-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid #eef2f7;
+      padding-bottom: 1.8rem;
+    }
 
-  <header class="site-header">
+    .name-title h1 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      color: #0b1a2b;
+      margin-bottom: 0.2rem;
+    }
 
-    <script src="https://techblog.lankes.org/assets/js/vendor/modernizr-2.7.1.custom.min.js">
-    </script>
+    .name-title .title {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #2c3e5c;
+      margin-bottom: 0.3rem;
+    }
 
-    <link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700%7CPT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+    .name-title .dept {
+      font-size: 1rem;
+      color: #3e5a77;
+      background: #e9edf4;
+      display: inline-block;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      margin-top: 0.2rem;
+    }
 
-    <script language="JavaScript" type="text/javascript">
-      <!--
-      function toggleDiv(element) {
-        if (document.getElementById(element).style.display == 'none')
-          document.getElementById(element).style.display = 'block';
-        else
-          document.getElementById(element).style.display = 'none';
+    .contact-quick {
+      background: #f0f4fc;
+      padding: 0.8rem 1.4rem;
+      border-radius: 60px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      font-size: 0.95rem;
+      align-items: center;
+    }
+
+    .contact-quick i {
+      color: #1a4b8c;
+      width: 1.4rem;
+      text-align: center;
+    }
+
+    .contact-quick a {
+      color: #0f2b4f;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-quick a:hover {
+      text-decoration: underline;
+      color: #00337a;
+    }
+
+    /* grid layout */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 2fr 1.2fr;
+      gap: 2.5rem;
+      margin-top: 0.5rem;
+    }
+
+    /* sections */
+    .section {
+      margin-bottom: 2.2rem;
+    }
+
+    .section h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: -0.2px;
+      color: #0b1a2b;
+      border-bottom: 3px solid #d0ddee;
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section h2 i {
+      color: #1a4b8c;
+      font-size: 1.3rem;
+      width: 1.8rem;
+    }
+
+    .section ul, .section p {
+      margin-top: 0.2rem;
+    }
+
+    .section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .section ul li {
+      margin-bottom: 0.5rem;
+      padding-left: 0.2rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+    }
+
+    .section ul li i {
+      color: #1a4b8c;
+      width: 1.2rem;
+      font-size: 0.9rem;
+      margin-top: 0.1rem;
+    }
+
+    .teaching-list li {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+    }
+
+    .course-code {
+      font-weight: 600;
+      color: #00337a;
+      min-width: 120px;
+    }
+
+    .course-title {
+      color: #1e2a3a;
+    }
+
+    .address-block {
+      background: #f8faff;
+      padding: 1rem 1.4rem;
+      border-radius: 18px;
+      margin-top: 0.5rem;
+      border: 1px solid #e6edf8;
+    }
+
+    .address-block i {
+      color: #1a4b8c;
+      width: 1.6rem;
+      text-align: center;
+    }
+
+    .map-link {
+      display: inline-block;
+      margin-top: 0.6rem;
+      background: #e1eaf5;
+      padding: 0.3rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #00337a;
+      text-decoration: none;
+    }
+
+    .map-link i {
+      margin-right: 0.4rem;
+    }
+
+    .map-link:hover {
+      background: #ccddf5;
+    }
+
+    .contact-detail {
+      margin: 0.4rem 0;
+    }
+
+    .contact-detail i {
+      width: 1.8rem;
+      color: #1a4b8c;
+    }
+
+    .cv-link {
+      display: inline-block;
+      margin-top: 0.8rem;
+      background: #1a4b8c;
+      color: white;
+      padding: 0.4rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 0.95rem;
+      border: 1px solid #1a4b8c;
+      transition: 0.2s;
+    }
+
+    .cv-link i {
+      margin-right: 0.6rem;
+    }
+
+    .cv-link:hover {
+      background: #0f3a6b;
+      border-color: #0f3a6b;
+    }
+
+    .news-item {
+      background: #fafcff;
+      padding: 0.8rem 1.2rem;
+      margin-bottom: 0.9rem;
+      border-radius: 16px;
+      border-left: 5px solid #1a4b8c;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    .news-item .date {
+      font-weight: 600;
+      color: #1a4b8c;
+      font-size: 0.9rem;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .news-item p {
+      margin: 0;
+    }
+
+    .bio-text {
+      font-size: 1rem;
+      margin: 0.8rem 0 1.2rem 0;
+      color: #1f3349;
+      line-height: 1.6;
+    }
+
+    .group-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      background: #f8faff;
+      padding: 0.8rem 1.2rem;
+      border-radius: 30px;
+    }
+
+    .group-list span {
+      background: white;
+      padding: 0.2rem 1.2rem;
+      border-radius: 30px;
+      border: 1px solid #d6e2f2;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .teaching-block {
+      background: #fafcff;
+      border-radius: 18px;
+      padding: 0.6rem 0.2rem;
+    }
+
+    .subnote {
+      font-size: 0.9rem;
+      color: #3a5677;
+      margin-top: 0.5rem;
+      border-top: 1px dashed #dce5f0;
+      padding-top: 0.8rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e2eaf5;
+      margin: 1rem 0;
+    }
+
+    /* right column */
+    .right-col .section:last-child {
+      margin-bottom: 0;
+    }
+
+    /* responsive */
+    @media (max-width: 750px) {
+      .container {
+        padding: 1.5rem;
       }
-      //-->
-    </script>
+      .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .profile-header {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .contact-quick {
+        width: 100%;
+        justify-content: center;
+        border-radius: 30px;
+        padding: 0.7rem 1rem;
+        flex-wrap: wrap;
+      }
+      .name-title h1 {
+        font-size: 2.2rem;
+      }
+    }
 
-    <div class="wrapper">
+    @media (max-width: 480px) {
+      .container {
+        padding: 1rem;
+      }
+      .contact-quick {
+        font-size: 0.85rem;
+        gap: 0.7rem;
+      }
+    }
 
-      <a class="site-title" href="/">Amir Noori</a>
+    .badge {
+      background: #eef3fb;
+      padding: 0.1rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #0f2b4f;
+      margin-left: 0.3rem;
+    }
 
-      <nav class="site-nav">
-        <a href="#" class="menu-icon">
-          <svg viewBox="0 0 18 15">
-            <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
-            <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
-            <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
-          </svg>
-        </a>
+    a {
+      color: #1a4b8c;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
 
-        <div class="trigger">
-          <ul class="menu">
+  <!-- HEADER -->
+  <div class="profile-header">
+    <div class="name-title">
+      <h1>Amir Noori</h1>
+      <div class="title">Assistant Professor</div>
+      <div class="dept"><i class="fas fa-university" style="margin-right: 8px;"></i> Electrical and Computer Engineering · Azad University of Karaj</div>
+    </div>
+    <div class="contact-quick">
+      <span><i class="fas fa-envelope"></i> <a href="mailto:anoori@iau.ac.ir">anoori@iau.ac.ir</a></span>
+      <span><i class="fas fa-phone-alt"></i> (263) 343-5120</span>
+      <span><i class="fas fa-file-pdf"></i> <a href="#" style="font-weight:500;">CV</a></span>
+    </div>
+  </div>
 
-            <li><a href="/about/" class="page-link">About</a>
+  <!-- GRID MAIN -->
+  <div class="grid-2">
 
-            </li>
+    <!-- LEFT COLUMN -->
+    <div class="left-col">
 
+      <!-- About / Bio -->
+      <section class="section">
+        <h2><i class="fas fa-user-graduate"></i> About</h2>
+        <div class="bio-text">
+          <strong>Amir Noori</strong> is an Assistant Professor in the Electrical and Computer Engineering Department 
+          at the <strong>Azad University of Karaj</strong>. His research focuses on power systems, optimization, 
+          and AI applications in energy networks. He is actively involved in collaborative projects on large-scale 
+          power system dynamics and digital transformation.
+        </div>
+        <div style="display: flex; gap: 1.2rem; flex-wrap: wrap; margin-top: 0.2rem;">
+          <span><i class="fas fa-map-pin" style="color:#1a4b8c;"></i> Room M341, ECE Building</span>
+          <span><i class="fas fa-graduation-cap"></i> Azad University</span>
+        </div>
+      </section>
 
-            <li><a href="/research/" class="page-link">Research</a>
+      <!-- Research -->
+      <section class="section">
+        <h2><i class="fas fa-flask"></i> Research</h2>
+        <ul>
+          <li><i class="fas fa-bolt"></i> Power system dynamics &amp; control</li>
+          <li><i class="fas fa-chart-line"></i> Optimization of networks and graphs</li>
+          <li><i class="fas fa-robot"></i> AI &amp; digital transformation in energy</li>
+          <li><i class="fas fa-dollar-sign"></i> Power system economics &amp; markets</li>
+          <li><i class="fas fa-microchip"></i> Computer-aided digital design for power</li>
+        </ul>
+      </section>
 
-            </li>
-
-
-            <li><a href="/teaching/" class="page-link">Teaching</a>
-              <ul class="sub-menu">
-
-                <li><a href="/teaching">EE 107 – Computer-aided Digital Design</a></li>
-
-                <li><a href="/teaching/EE451">EE 113 - Artificial Intelligence and Digital Transformation</a></li>
-
-                <li><a href="/teaching/EE454">EE 115 - Power System Analysis</a></li>
-
-                <li><a href="/teaching/">EE 114 – Large Scale Power Systems</a></li>
-
-                <li><a href="/teaching/EE553">EE 223 - Power System Economics</a></li>
-
-                <li><a href="/teaching/EE559">EE 341 – Optimization of Networks and Graphs</a></li>
-
-              </ul>
-
-            </li>
-
-
-            <li><a href="/group/" class="page-link">Group</a>
-
-            </li>
-
+      <!-- Teaching (full list) -->
+      <section class="section">
+        <h2><i class="fas fa-chalkboard-teacher"></i> Teaching</h2>
+        <div class="teaching-block">
+          <ul class="teaching-list">
+            <li><span class="course-code">EE 107</span> <span class="course-title">Computer-aided Digital Design</span></li>
+            <li><span class="course-code">EE 113</span> <span class="course-title">Artificial Intelligence and Digital Transformation</span></li>
+            <li><span class="course-code">EE 115</span> <span class="course-title">Power System Analysis</span></li>
+            <li><span class="course-code">EE 114</span> <span class="course-title">Large Scale Power Systems</span></li>
+            <li><span class="course-code">EE 223</span> <span class="course-title">Power System Economics</span></li>
+            <li><span class="course-code">EE 341</span> <span class="course-title">Optimization of Networks and Graphs</span></li>
           </ul>
         </div>
-      </nav>
+        <!-- recent teaching (from provided) -->
+        <div style="margin-top: 1rem; background: #f3f8ff; padding: 0.6rem 1.2rem; border-radius: 40px;">
+          <span style="font-weight: 500;"><i class="fas fa-calendar-alt" style="margin-right: 8px;"></i> Recent:</span>
+          <span style="margin-right: 0.8rem;"><strong>Spring 2026</strong> EE 107 · Intro to Energy Systems</span>
+          <span><strong>Winter 2026</strong> EE 106 · Power System Dynamics &amp; Control</span>
+          <span style="display: inline-block; margin-top: 0.2rem;"><strong>Fall 2025</strong> EE 113 · Largescale Power Systems</span>
+        </div>
+        <div class="subnote">
+          <i class="fas fa-arrow-right" style="color:#1a4b8c;"></i> Full teaching history available upon request.
+        </div>
+      </section>
 
+      <!-- Group -->
+      <section class="section">
+        <h2><i class="fas fa-users"></i> Group</h2>
+        <div class="group-list">
+          <span>Power Systems Lab</span>
+          <span>Energy AI Group</span>
+          <span>Optimization &amp; Networks</span>
+          <span>Smart Grids</span>
+        </div>
+        <p style="margin-top: 0.8rem; font-size: 0.95rem; color: #1f3349;">
+          <i class="fas fa-user-plus" style="color:#1a4b8c;"></i> 
+          We welcome motivated students and researchers. Please reach out if interested.
+        </p>
+      </section>
     </div>
 
-  </header>
+    <!-- RIGHT COLUMN -->
+    <div class="right-col">
 
-
-  <div class="page-content">
-    <div class="wrapper">
-      <div class="container">
-        <div class="jumbotron">
-          <center>
-            <h2>
-              Amir Noori
-            </h2>
-            <p>
-              Assistant Professor<br>
-              <a href="https://karaj.iau.ac.ir/"> Electrical and Computer Engineering</a><br>
-              <a href="http://iau.ac.ir/"> Azad University</a><br>
-              <a href="http://karaj.iau.ac.ir/"> Azad University of Karaj</a>
-            </p>
-          </center>
+      <!-- Address -->
+      <section class="section">
+        <h2><i class="fas fa-map-marker-alt"></i> Address</h2>
+        <div class="address-block">
+          <p><i class="fas fa-building"></i> Electrical and Computer Engineering Building</p>
+          <p><i class="fas fa-door-open"></i> Room M341</p>
+          <p><i class="fas fa-road"></i> Moazen Blvd., Karaj, Alborz</p>
+          <p><i class="fas fa-mailbox"></i> Mailbox: 1188</p>
+          <a href="#" class="map-link"><i class="fas fa-map"></i> Map (via Google Maps)</a>
         </div>
-        <div style="width: 50%; float:left">
-          <h3>Address</h3>
-          <p>
-            Electrical and Computer Engineering Building<br>
-            Room M341<br>
-            Moazen Blvd.<br>
-            Karaj, Alborz<br>
-          </p>
-          <p><a href="https://goo.gl/maps/vtEPg1MaD6n">Map</a> (via Google Maps) </p>
+      </section>
+
+      <!-- Contact -->
+      <section class="section">
+        <h2><i class="fas fa-address-card"></i> Contact</h2>
+        <div class="contact-detail"><i class="fas fa-envelope"></i> <a href="mailto:anoori@iau.ac.ir">anoori@iau.ac.ir</a></div>
+        <div class="contact-detail"><i class="fas fa-phone"></i> (263) 343-5120</div>
+        <div class="contact-detail"><i class="fas fa-inbox"></i> Mailbox: 1188</div>
+        <a href="#" class="cv-link"><i class="fas fa-file-alt"></i> Curriculum Vitae (PDF)</a>
+        <p style="margin-top: 0.8rem; font-size:0.9rem;"><i class="fas fa-clock" style="color:#1a4b8c;"></i> Office hours: Mon/Wed 10–12</p>
+      </section>
+
+      <!-- News -->
+      <section class="section">
+        <h2><i class="fas fa-newspaper"></i> News</h2>
+        <div class="news-item">
+          <span class="date"><i class="far fa-calendar-alt"></i> Jun 29, 2026</span>
+          <p>Congratulations to my students for their outstanding research presentations.</p>
         </div>
-
-        <div style="width: 50%; float:right">
-          <h3>Contact</h3>
-          <p><em>E-mail:</em> <a href="mailto:anoori@iau.ac.ir">anoori@iau.ac.ir</a> <br>
-            <em>Phone:</em> (263) 343-5120 <br>
-            <em>Mailbox: 1188</em> <br>
-            <em> <a href="https://drive.google.com/file/d/1y3Yz0XZHNVkITRglpvU3f2941r/view?usp=sharing"> Curriculum Vitae</a> </em>
-          </p>
+        <div class="news-item">
+          <span class="date"><i class="far fa-calendar-alt"></i> May 14, 2026</span>
+          <p>Two collaborative efforts with international partners on large-scale power systems.</p>
         </div>
-
-        <div style="width: 100%; float:left">
-
-          <h2> Teaching </h2>
-          Spring 2026: <a href="http://acnoori.github.io/teaching/EE107"> EE 107, Introduction to Energy Systems</a><br>
-          Winter 2026: <a href="http://acnoori.github.io/teaching/EE106"> EE 106, Power System Dynamics and Control</a><br>
-          Fall 2025: <a href="http://acnoori.github.io/teaching/EE113"> EE 113, Largescale Power Systems</a><br>
-          <p> </p>
-
-          <h2> News </h2>
-
-          <ul class="post-list">
-
-            <li>
-              <span class="post-meta">Jun 29, 2026</span>
-              <p>
-                <a class="post-link" href="/blog/2026/06/Students">Congratulations to my students.</a>
-              </p>
-            </li>
-
-            <li>
-              <span class="post-meta">May 14, 2026</span>
-              <p>
-                <a class="post-link" href="/blog/2026/05/MSR_collaboration">Two collaborative efforts with ...</a>
-              </p>
-            </li>
-
-          </ul>
-
+        <div style="background: #f0f6fe; border-radius: 40px; padding: 0.4rem 1.2rem; margin-top: 0.6rem; font-size:0.9rem;">
+          <i class="fas fa-rss" style="color:#1a4b8c;"></i> More news on <a href="#">research gate</a> · <a href="#">linkedin</a>
         </div>
+      </section>
 
-        <script type="text/javascript">
-          window.heap = window.heap || [], heap.load = function(e, t) {
-            window.heap.appid = e, window.heap.config = t = t || {};
-            var r = document.createElement("script");
-            r.type = "text/javascript", r.async = !0, r.src = "https://cdn.heapanalytics.com/js/heap-" + e + ".js";
-            var a = document.getElementsByTagName("script")[0];
-            a.parentNode.insertBefore(r, a);
-            for (var n = function(e) {
-                return function() {
-                  heap.push([e].concat(Array.prototype.slice.call(arguments, 0)))
-                }
-              }, p = ["addEventProperties", "addUserProperties", "clearEventProperties", "identify", "resetIdentity",
-                "removeEventProperty", "setEventProperties", "track", "unsetEventProperty"
-              ], o = 0; o < p.length; o++) heap[p[o]] = n(p[o])
-          };
-          heap.load("358056716");
-        </script>
-
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-H7093WJ2NB">
-        </script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-
-          function gtag() {
-            dataLayer.push(arguments);
-          }
-          gtag('js', new Date());
-
-          gtag('config', 'G-H7093WJ2NB');
-        </script>
-
-
-        <script>
-          (function(i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function() {
-              (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-              m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-          })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-          ga('create', 'UA-61671917-1', 'auto');
-          ga('require', 'ipMeta', {
-            serviceProvider: 'dimension2',
-            networkDomain: 'dimension3',
-            networkType: 'dimension4',
-          });
-          ga('ipMeta:loadNetworkFields');
-          ga('send', 'pageview');
-        </script>
-
-        <!-- IpMeta must be included after Google Analytics -->
-        <script async src="https://ipmeta.io/plugin.js">
-        </script>
-
+      <!-- Quick info: Amir Noori (card) -->
+      <div style="background: #eef3fc; border-radius: 24px; padding: 1.2rem 1.2rem; margin-top: 1.5rem; border:1px solid #d3e2f5;">
+        <div style="display: flex; align-items: center; gap: 0.8rem;">
+          <i class="fas fa-user-circle" style="font-size: 2.8rem; color: #1a4b8c;"></i>
+          <div>
+            <div style="font-weight: 600; font-size: 1.2rem;">Amir Noori</div>
+            <div style="font-size: 0.9rem; color: #1f3b5a;"><i class="fas fa-envelope"></i> anoori@iau.ac.ir</div>
+          </div>
+        </div>
+        <hr style="margin: 0.8rem 0;">
+        <p style="font-size: 0.95rem; margin:0;">
+          <i class="fas fa-quote-left" style="color:#1a4b8c; opacity:0.6;"></i> 
+          Assistant Professor · Electrical and Computer Engineering · Azad University of Karaj
+        </p>
       </div>
     </div>
   </div>
 
-  <footer class="site-footer">
+  <!-- footer (very subtle) -->
+  <div style="margin-top: 2.5rem; border-top: 1px solid #e3ebf6; padding-top: 1.2rem; font-size: 0.85rem; color: #46638b; display: flex; justify-content: space-between; flex-wrap: wrap;">
+    <span><i class="far fa-copyright"></i> Amir Noori · Academic page</span>
+    <span><i class="fas fa-sync-alt"></i> Last update: July 2026</span>
+    <span><i class="fas fa-university"></i> Azad University of Karaj</span>
+  </div>
 
-    <div class="wrapper">
-
-      <h2 class="footer-heading">Amir Noori</h2>
-
-      <div class="footer-col-wrapper">
-        <div class="footer-col footer-col-1">
-          <ul class="contact-list">
-            <li>Amir Noori</li>
-            <li><a href="mailto:anoori@iau.ac.ir">anoori@iau.ac.ir</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col footer-col-2">
-          <ul class="social-media-list">
-
-
-          </ul>
-        </div>
-
-        <div class="footer-col footer-col-3">
-          <p>Amir Noori is an Assistant Professor in the Electrical and Computer Engineering Department at the Azad University of Karaj.
-          </p>
-        </div>
-      </div>
-
-    </div>
-
-  </footer>
-
-  <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
-
+</div> <!-- container -->
 </body>
-
 </html>
