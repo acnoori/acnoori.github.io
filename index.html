@@ -31,6 +31,57 @@
       transition: all 0.2s;
     }
 
+    /* ----- TOP NAVIGATION MENU (Home, Research, Teaching, Group) ----- */
+    .top-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem 1.8rem;
+      background: #f0f4fc;
+      padding: 0.7rem 1.8rem;
+      border-radius: 60px;
+      margin-bottom: 2rem;
+      border: 1px solid #e0eaf5;
+      box-shadow: 0 2px 6px rgba(0, 20, 40, 0.04);
+    }
+
+    .top-nav a {
+      font-weight: 600;
+      color: #0b2a4a;
+      text-decoration: none;
+      font-size: 1rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 40px;
+      transition: 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      letter-spacing: -0.01em;
+    }
+
+    .top-nav a i {
+      color: #1a4b8c;
+      font-size: 0.95rem;
+      width: 1.2rem;
+      text-align: center;
+    }
+
+    .top-nav a:hover {
+      background: #d6e4f7;
+      color: #00337a;
+      text-decoration: none;
+    }
+
+    .top-nav a.active {
+      background: #1a4b8c;
+      color: white;
+      padding: 0.3rem 1.4rem;
+    }
+
+    .top-nav a.active i {
+      color: white;
+    }
+
     /* header / name */
     .profile-header {
       display: flex;
@@ -327,6 +378,16 @@
       .name-title h1 {
         font-size: 2.2rem;
       }
+      .top-nav {
+        gap: 0.3rem 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 40px;
+        justify-content: center;
+      }
+      .top-nav a {
+        font-size: 0.9rem;
+        padding: 0.2rem 0.8rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -336,6 +397,14 @@
       .contact-quick {
         font-size: 0.85rem;
         gap: 0.7rem;
+      }
+      .top-nav {
+        gap: 0.2rem 0.6rem;
+        padding: 0.4rem 0.8rem;
+      }
+      .top-nav a {
+        font-size: 0.8rem;
+        padding: 0.2rem 0.5rem;
       }
     }
 
@@ -356,6 +425,14 @@
 </head>
 <body>
 <div class="container">
+
+  <!-- ===== TOP NAVIGATION MENU ===== -->
+  <nav class="top-nav">
+    <a href="#" class="active"><i class="fas fa-home"></i> Home</a>
+    <a href="#"><i class="fas fa-flask"></i> Research</a>
+    <a href="#"><i class="fas fa-chalkboard-teacher"></i> Teaching</a>
+    <a href="#"><i class="fas fa-users"></i> Group</a>
+  </nav>
 
   <!-- HEADER -->
   <div class="profile-header">
