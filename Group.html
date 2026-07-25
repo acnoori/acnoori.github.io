@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research Group · FAHAM Center</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f5f7fa;
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+      color: #1e2a3a;
+      line-height: 1.5;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 28px;
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.12);
+      padding: 2.5rem 2.8rem;
+    }
+
+    /* header */
+    .page-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #eef2f7;
+      padding-bottom: 1.2rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .page-header h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      color: #0b1a2b;
+    }
+
+    .page-header h1 i {
+      color: #1a4b8c;
+      margin-right: 0.7rem;
+    }
+
+    .back-link {
+      background: #e9edf4;
+      padding: 0.4rem 1.4rem;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #0f2b4f;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .back-link i {
+      margin-right: 0.5rem;
+    }
+
+    .back-link:hover {
+      background: #d0ddee;
+    }
+
+    /* center banner */
+    .center-banner {
+      background: linear-gradient(135deg, #eef3fc 0%, #dce6f5 100%);
+      border-radius: 32px;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2.5rem;
+      border: 1px solid #c6d8ed;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .center-banner h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #0b1a2b;
+    }
+
+    .center-banner h2 i {
+      color: #1a4b8c;
+      margin-right: 0.6rem;
+    }
+
+    .center-banner p {
+      font-size: 1rem;
+      color: #1f3b5a;
+      max-width: 600px;
+      margin-top: 0.2rem;
+    }
+
+    .center-banner .badge-center {
+      background: #1a4b8c;
+      color: white;
+      padding: 0.3rem 1.8rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* lab grid */
+    .lab-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .lab-card {
+      background: #fafcff;
+      border-radius: 24px;
+      padding: 1.6rem 1.6rem 1.8rem;
+      border: 1px solid #e6edf8;
+      transition: 0.15s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .lab-card:hover {
+      border-color: #b0c8e0;
+      background: #f8fbff;
+    }
+
+    .lab-card .lab-icon {
+      font-size: 2.2rem;
+      color: #1a4b8c;
+      margin-bottom: 0.3rem;
+    }
+
+    .lab-card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #0b1a2b;
+      margin: 0.1rem 0 0.3rem 0;
+    }
+
+    .lab-subtitle {
+      font-size: 0.9rem;
+      color: #2c405e;
+      background: #e9eff8;
+      display: inline-block;
+      padding: 0.1rem 1.2rem;
+      border-radius: 30px;
+      margin-bottom: 0.8rem;
+    }
+
+    .subdivision-list {
+      list-style: none;
+      margin: 0.6rem 0 0.2rem 0;
+      flex: 1;
+    }
+
+    .subdivision-list li {
+      padding: 0.4rem 0;
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      border-bottom: 1px solid #f0f5fd;
+    }
+
+    .subdivision-list li:last-child {
+      border-bottom: none;
+    }
+
+    .subdivision-list i {
+      color: #1a4b8c;
+      width: 1.4rem;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    .subdivision-list .sub-name {
+      font-weight: 600;
+      color: #0b1a2b;
+    }
+
+    .subdivision-list .sub-desc {
+      color: #2c405e;
+      font-size: 0.9rem;
+    }
+
+    .research-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem 0.7rem;
+      margin-top: 0.8rem;
+      padding-top: 0.6rem;
+      border-top: 1px dashed #dce5f0;
+    }
+
+    .research-tags span {
+      background: #eef3fb;
+      padding: 0.1rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      color: #1a4b8c;
+      font-weight: 500;
+    }
+
+    .lab-people {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      color: #1f3349;
+      background: #f1f7ff;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      display: inline-block;
+    }
+
+    .lab-people i {
+      color: #1a4b8c;
+      margin-right: 0.4rem;
+    }
+
+    .footer-note {
+      margin-top: 2.8rem;
+      border-top: 1px solid #e3ebf6;
+      padding-top: 1.2rem;
+      font-size: 0.9rem;
+      color: #46638b;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .join-card {
+      background: #eef3fc;
+      border-radius: 32px;
+      padding: 1.2rem 2rem;
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid #d3e2f5;
+    }
+
+    .join-card .join-text {
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    .join-card .join-text i {
+      color: #1a4b8c;
+      margin-right: 0.6rem;
+    }
+
+    .join-card a {
+      background: #1a4b8c;
+      color: white;
+      padding: 0.3rem 2rem;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+
+    .join-card a:hover {
+      background: #0f3a6b;
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        padding: 1.5rem;
+      }
+      .lab-grid {
+        grid-template-columns: 1fr;
+      }
+      .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .center-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- header -->
+  <div class="page-header">
+    <h1><i class="fas fa-flask"></i> Research Group · FAHAM Center</h1>
+    <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to profile</a>
+  </div>
+
+  <!-- FAHAM Center banner -->
+  <div class="center-banner">
+    <div>
+      <h2><i class="fas fa-building-columns"></i> FAHAM Center</h2>
+      <p><i class="fas fa-chevron-right" style="color:#1a4b8c; font-size:0.8rem;"></i> 
+        Frontier Advances in Mobility, Analytics &amp; High-performance Modeling
+      </p>
+      <p style="margin-top:0.4rem; font-size:0.95rem;">
+        <i class="fas fa-map-pin" style="color:#1a4b8c;"></i> Azad University of Karaj · ECE Building
+      </p>
+    </div>
+    <span class="badge-center"><i class="fas fa-microscope"></i> 3 active labs</span>
+  </div>
+
+  <!-- lab grid -->
+  <div class="lab-grid">
+
+    <!-- ===== LAB 1: Electromobility ===== -->
+    <div class="lab-card">
+      <div class="lab-icon"><i class="fas fa-car-side"></i></div>
+      <h3>Electromobility Lab</h3>
+      <span class="lab-subtitle"><i class="fas fa-bolt"></i> EV &amp; HEV Center of Excellence</span>
+      <ul class="subdivision-list">
+        <li><i class="fas fa-battery-full"></i> <span class="sub-name">Battery Systems</span> <span class="sub-desc">· BMS, thermal management, second-life</span></li>
+        <li><i class="fas fa-charging-station"></i> <span class="sub-name">Charging Infrastructure</span> <span class="sub-desc">· fast charging, V2G, grid integration</span></li>
+        <li><i class="fas fa-microchip"></i> <span class="sub-name">Power Electronics</span> <span class="sub-desc">· converters, inverters, motor drives</span></li>
+        <li><i class="fas fa-route"></i> <span class="sub-name">Vehicle Dynamics &amp; Control</span> <span class="sub-desc">· traction, stability, ADAS</span></li>
+      </ul>
+      <div class="research-tags">
+        <span>Li-ion aging</span>
+        <span>V2X</span>
+        <span>SiC/GaN</span>
+        <span>thermal modeling</span>
+      </div>
+      <div class="lab-people"><i class="fas fa-user-graduate"></i> 4 PhD · 6 MSc · 2 postdocs</div>
+    </div>
+
+    <!-- ===== LAB 2: High-Performance Computing ===== -->
+    <div class="lab-card">
+      <div class="lab-icon"><i class="fas fa-server"></i></div>
+      <h3>High-Performance Computing Lab</h3>
+      <span class="lab-subtitle"><i class="fas fa-cpu"></i> HPC &amp; Scientific Computing</span>
+      <ul class="subdivision-list">
+        <li><i class="fas fa-cloud"></i> <span class="sub-name">Parallel Computing</span> <span class="sub-desc">· MPI, OpenMP, CUDA, distributed systems</span></li>
+        <li><i class="fas fa-brain"></i> <span class="sub-name">AI &amp; Machine Learning</span> <span class="sub-desc">· large-scale training, deep learning, LLMs</span></li>
+        <li><i class="fas fa-database"></i> <span class="sub-name">Big Data Analytics</span> <span class="sub-desc">· streaming, data lakes, real-time processing</span></li>
+        <li><i class="fas fa-chart-pie"></i> <span class="sub-name">Scientific Simulation</span> <span class="sub-desc">· CFD, quantum chemistry, plasma physics</span></li>
+      </ul>
+      <div class="research-tags">
+        <span>GPU clusters</span>
+        <span>Federated learning</span>
+        <span>Spark</span>
+        <span>Quantum simulations</span>
+      </div>
+      <div class="lab-people"><i class="fas fa-user-graduate"></i> 3 PhD · 8 MSc · 1 postdoc</div>
+    </div>
+
+    <!-- ===== LAB 3: Smart Energy Grids ===== -->
+    <div class="lab-card">
+      <div class="lab-icon"><i class="fas fa-bolt"></i></div>
+      <h3>Smart Energy Grids Lab</h3>
+      <span class="lab-subtitle"><i class="fas fa-solar-panel"></i> Future Grids &amp; Resilience</span>
+      <ul class="subdivision-list">
+        <li><i class="fas fa-network-wired"></i> <span class="sub-name">Microgrids &amp; DER</span> <span class="sub-desc">· control, optimization, islanding</span></li>
+        <li><i class="fas fa-chart-line"></i> <span class="sub-name">Grid Analytics</span> <span class="sub-desc">· state estimation, fault detection, PMU</span></li>
+        <li><i class="fas fa-hand-holding-usd"></i> <span class="sub-name">Energy Markets &amp; Economics</span> <span class="sub-desc">· bidding, pricing, demand response</span></li>
+        <li><i class="fas fa-shield-alt"></i> <span class="sub-name">Cybersecurity &amp; Resilience</span> <span class="sub-desc">· attack detection, secure SCADA, IoT</span></li>
+      </ul>
+      <div class="research-tags">
+        <span>Real-time sim</span>
+        <span>OPAL-RT</span>
+        <span>Blockchain</span>
+        <span>Edge AI</span>
+      </div>
+      <div class="lab-people"><i class="fas fa-user-graduate"></i> 5 PhD · 7 MSc · 3 postdocs</div>
+    </div>
+
+  </div> <!-- lab-grid -->
+
+  <!-- additional subdivisions / cross-cutting -->
+  <div style="margin-top: 2.5rem; background: #f5f9ff; border-radius: 28px; padding: 1.2rem 2rem; border: 1px solid #dce8f7;">
+    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem 3rem; align-items: center;">
+      <div><i class="fas fa-circle-nodes" style="color:#1a4b8c; font-size:1.6rem;"></i></div>
+      <div><strong style="font-size:1.1rem;">Cross‑cutting initiatives</strong></div>
+      <div><span class="research-tags" style="border-top: none; padding-top:0; gap:0.5rem 1rem;">
+        <span>EV‑Grid integration</span>
+        <span>AI‑driven HPC</span>
+        <span>Digital twins</span>
+        <span>Resilient microgrids</span>
+      </span></div>
+      <div style="margin-left: auto; font-size:0.9rem;"><i class="fas fa-users" style="color:#1a4b8c;"></i> 15+ researchers</div>
+    </div>
+  </div>
+
+  <!-- join / contact -->
+  <div class="join-card">
+    <span class="join-text"><i class="fas fa-user-plus"></i> Interested in joining? We welcome motivated students, postdocs, and visitors.</span>
+    <a href="mailto:anoori@iau.ac.ir"><i class="fas fa-envelope"></i> Contact PI</a>
+  </div>
+
+  <div class="footer-note">
+    <span><i class="far fa-copyright"></i> Amir Noori · FAHAM Center</span>
+    <span><i class="fas fa-sync-alt"></i> Last update: July 2026</span>
+    <span><i class="fas fa-university"></i> Azad University of Karaj · ECE</span>
+  </div>
+
+</div> <!-- container -->
+</body>
+</html>
