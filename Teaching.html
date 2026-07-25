@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teaching · Amir Noori</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f5f7fa;
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+      color: #1e2a3a;
+      line-height: 1.5;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 28px;
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.12);
+      padding: 2.5rem 2.8rem;
+    }
+
+    /* header */
+    .page-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #eef2f7;
+      padding-bottom: 1.2rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .page-header h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      color: #0b1a2b;
+    }
+
+    .page-header h1 i {
+      color: #1a4b8c;
+      margin-right: 0.7rem;
+    }
+
+    .back-link {
+      background: #e9edf4;
+      padding: 0.4rem 1.4rem;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #0f2b4f;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .back-link i {
+      margin-right: 0.5rem;
+    }
+
+    .back-link:hover {
+      background: #d0ddee;
+    }
+
+    /* course grid */
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .course-card {
+      background: #fafcff;
+      border-radius: 24px;
+      padding: 1.5rem 1.5rem 1.8rem;
+      border: 1px solid #e6edf8;
+      transition: 0.15s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .course-card:hover {
+      border-color: #b8cde0;
+      background: #f8fbff;
+    }
+
+    .course-code {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #1a4b8c;
+      background: #e4eefa;
+      display: inline-block;
+      padding: 0.1rem 1rem;
+      border-radius: 30px;
+      letter-spacing: 0.3px;
+      margin-bottom: 0.4rem;
+      align-self: flex-start;
+    }
+
+    .course-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #0b1a2b;
+      margin: 0.2rem 0 0.6rem 0;
+    }
+
+    .course-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem 1rem;
+      font-size: 0.9rem;
+      color: #2c405e;
+      margin-bottom: 0.8rem;
+      border-bottom: 1px dashed #dce5f0;
+      padding-bottom: 0.6rem;
+    }
+
+    .course-meta i {
+      color: #1a4b8c;
+      width: 1.2rem;
+    }
+
+    .resource-list {
+      list-style: none;
+      margin: 0.6rem 0 0.2rem 0;
+      flex: 1;
+    }
+
+    .resource-list li {
+      padding: 0.3rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      border-bottom: 1px solid #f0f5fd;
+    }
+
+    .resource-list li:last-child {
+      border-bottom: none;
+    }
+
+    .resource-list i {
+      color: #1a4b8c;
+      width: 1.3rem;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    .resource-list a {
+      color: #0f2b4f;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.1s;
+    }
+
+    .resource-list a:hover {
+      color: #00337a;
+      text-decoration: underline;
+    }
+
+    .badge-resource {
+      background: #eef3fb;
+      padding: 0.1rem 0.7rem;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #1a4b8c;
+      margin-left: 0.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .exam-quiz {
+      margin-top: 0.8rem;
+      background: #f1f7ff;
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.8rem;
+      font-size: 0.9rem;
+      border: 1px solid #dce8f7;
+    }
+
+    .exam-quiz span i {
+      color: #1a4b8c;
+      margin-right: 0.4rem;
+    }
+
+    .social-links {
+      margin-top: 0.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.2rem;
+    }
+
+    .social-links a {
+      color: #1a4b8c;
+      font-size: 0.95rem;
+      text-decoration: none;
+      background: #eef3fb;
+      padding: 0.1rem 1rem;
+      border-radius: 30px;
+      transition: 0.1s;
+    }
+
+    .social-links a i {
+      margin-right: 0.4rem;
+    }
+
+    .social-links a:hover {
+      background: #d6e2f2;
+    }
+
+    .footer-note {
+      margin-top: 2.5rem;
+      border-top: 1px solid #e3ebf6;
+      padding-top: 1.2rem;
+      font-size: 0.9rem;
+      color: #46638b;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        padding: 1.5rem;
+      }
+      .course-grid {
+        grid-template-columns: 1fr;
+      }
+      .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- header -->
+  <div class="page-header">
+    <h1><i class="fas fa-chalkboard-teacher"></i> Teaching · Courses & Resources</h1>
+    <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to profile</a>
+  </div>
+
+  <!-- course grid -->
+  <div class="course-grid">
+
+    <!-- ========== COURSE 1 ========== -->
+    <div class="course-card">
+      <span class="course-code">EE 107</span>
+      <div class="course-title">Computer-aided Digital Design</div>
+      <div class="course-meta">
+        <span><i class="fas fa-calendar-alt"></i> Spring 2026</span>
+        <span><i class="fas fa-clock"></i> Mon/Wed 10:30</span>
+      </div>
+      <ul class="resource-list">
+        <li><i class="fas fa-file-powerpoint"></i> <a href="#">Lecture slides (week 1–6)</a> <span class="badge-resource">PDF</span></li>
+        <li><i class="fas fa-code"></i> <a href="#">Lab materials &amp; Verilog</a></li>
+        <li><i class="fas fa-video"></i> <a href="#">Recordings (playlist)</a></li>
+        <li><i class="fas fa-book-open"></i> <a href="#">Reading list</a></li>
+      </ul>
+      <div class="exam-quiz">
+        <span><i class="fas fa-pencil-alt"></i> Quiz 1: 20 Feb</span>
+        <span><i class="fas fa-pencil-alt"></i> Quiz 2: 15 Mar</span>
+        <span><i class="fas fa-file-signature"></i> Final: 30 Apr</span>
+      </div>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-telegram"></i> Telegram group</a>
+        <a href="#"><i class="fab fa-discord"></i> Discord</a>
+        <a href="#"><i class="fas fa-link"></i> GitHub</a>
+      </div>
+    </div>
+
+    <!-- ========== COURSE 2 ========== -->
+    <div class="course-card">
+      <span class="course-code">EE 113</span>
+      <div class="course-title">AI &amp; Digital Transformation</div>
+      <div class="course-meta">
+        <span><i class="fas fa-calendar-alt"></i> Spring 2026</span>
+        <span><i class="fas fa-clock"></i> Tue/Thu 13:00</span>
+      </div>
+      <ul class="resource-list">
+        <li><i class="fas fa-file-powerpoint"></i> <a href="#">Slides · Transformers &amp; Energy</a></li>
+        <li><i class="fas fa-database"></i> <a href="#">Datasets &amp; notebooks</a></li>
+        <li><i class="fas fa-video"></i> <a href="#">Lecture capture</a></li>
+        <li><i class="fas fa-question-circle"></i> <a href="#">Discussion forum</a></li>
+      </ul>
+      <div class="exam-quiz">
+        <span><i class="fas fa-pencil-alt"></i> Quiz 1: 25 Feb</span>
+        <span><i class="fas fa-pencil-alt"></i> Midterm: 4 Apr</span>
+        <span><i class="fas fa-file-signature"></i> Project: 20 May</span>
+      </div>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-slack"></i> Slack</a>
+        <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="#"><i class="fas fa-envelope"></i> Mailing list</a>
+      </div>
+    </div>
+
+    <!-- ========== COURSE 3 ========== -->
+    <div class="course-card">
+      <span class="course-code">EE 115</span>
+      <div class="course-title">Power System Analysis</div>
+      <div class="course-meta">
+        <span><i class="fas fa-calendar-alt"></i> Spring 2026</span>
+        <span><i class="fas fa-clock"></i> Mon/Wed 15:00</span>
+      </div>
+      <ul class="resource-list">
+        <li><i class="fas fa-file-pdf"></i> <a href="#">Lecture notes (full set)</a></li>
+        <li><i class="fas fa-calculator"></i> <a href="#">PSAT / MATLAB scripts</a></li>
+        <li><i class="fas fa-video"></i> <a href="#">Recorded sessions</a></li>
+        <li><i class="fas fa-chart-bar"></i> <a href="#">Case studies</a></li>
+      </ul>
+      <div class="exam-quiz">
+        <span><i class="fas fa-pencil-alt"></i> Quiz 1: 10 Mar</span>
+        <span><i class="fas fa-pencil-alt"></i> Quiz 2: 5 Apr</span>
+        <span><i class="fas fa-file-signature"></i> Final: 25 May</span>
+      </div>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-telegram"></i> Telegram</a>
+        <a href="#"><i class="fab fa-github"></i> GitHub</a>
+      </div>
+    </div>
+
+    <!-- ========== COURSE 4 ========== -->
+    <div class="course-card">
+      <span class="course-code">EE 114</span>
+      <div class="course-title">Large Scale Power Systems</div>
+      <div class="course-meta">
+        <span><i class="fas fa-calendar-alt"></i> Winter 2026</span>
+        <span><i class="fas fa-clock"></i> Tue/Thu 09:00</span>
+      </div>
+      <ul class="resource-list">
+        <li><i class="fas fa-file-powerpoint"></i> <a href="#">Slides · stability &amp; control</a></li>
+        <li><i class="fas fa-microchip"></i> <a href="#">Simulink models</a></li>
+        <li><i class="fas fa-video"></i> <a href="#">Video library</a></li>
+        <li><i class="fas fa-tasks"></i> <a href="#">Assignment solutions</a></li>
+      </ul>
+      <div class="exam-quiz">
+        <span><i class="fas fa-pencil-alt"></i> Quiz: 12 Mar</span>
+        <span><i class="fas fa-pencil-alt"></i> Midterm: 4 Apr</span>
+        <span><i class="fas fa-file-signature"></i> Final: 15 May</span>
+      </div>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-discord"></i> Discord</a>
+        <a href="#"><i class="fas fa-link"></i> Moodle</a>
+      </div>
+    </div>
+
+    <!-- ========== COURSE 5 ========== -->
+    <div class="course-card">
+      <span class="course-code">EE 223</span>
+      <div class="course-title">Power System Economics</div>
+      <div class="course-meta">
+        <span><i class="fas fa-calendar-alt"></i> Winter 2026</span>
+        <span><i class="fas fa-clock"></i> Mon/Wed 11:00</span>
+      </div>
+      <ul class="resource-list">
+        <li><i class="fas fa-file-pdf"></i> <a href="#">Slides · markets &amp; bidding</a></li>
+        <li><i class="fas fa-dollar-sign"></i> <a href="#">Excel models / case studies</a></li>
+        <li><i class="fas fa-video"></i> <a href="#">Recorded lectures</a></li>
+        <li><i class="fas fa-newspaper"></i> <a href="#">Reading: papers &amp; reports</a></li>
+      </ul>
+      <div class="exam-quiz">
+        <span><i class="fas fa-pencil-alt"></i> Quiz 1: 8 Mar</span>
+        <span><i class="fas fa-pencil-alt"></i> Quiz 2: 22 Mar</span>
+        <span><i class="fas fa-file-signature"></i> Final: 30 Apr</span>
+      </div>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-telegram"></i> Telegram</a>
+        <a href="#"><i class="fab fa-linkedin"></i> LinkedIn group</a>
+      </div>
+    </div>
+
+    <!-- ========== COURSE 6 (extra) ========== -->
+    <div class="course-card">
+      <span class="course-code">EE 341</span>
+      <div class="course-title">Optimization of Networks &amp; Graphs</div>
+      <div class="course-meta">
+        <span><i class="fas fa-calendar-alt"></i> Fall 2025</span>
+        <span><i class="fas fa-clock"></i> Tue/Thu 14:00</span>
+      </div>
+      <ul class="resource-list">
+        <li><i class="fas fa-file-powerpoint"></i> <a href="#">Slides · graph theory</a></li>
+        <li><i class="fas fa-code"></i> <a href="#">Python / NetworkX</a></li>
+        <li><i class="fas fa-video"></i> <a href="#">Recordings</a></li>
+        <li><i class="fas fa-book"></i> <a href="#">Textbook chapters</a></li>
+      </ul>
+      <div class="exam-quiz">
+        <span><i class="fas fa-pencil-alt"></i> Quiz: 20 Feb</span>
+        <span><i class="fas fa-pencil-alt"></i> Midterm: 10 Mar</span>
+        <span><i class="fas fa-file-signature"></i> Final: 15 Apr</span>
+      </div>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-github"></i> GitHub</a>
+        <a href="#"><i class="fas fa-users"></i> Group chat</a>
+      </div>
+    </div>
+
+  </div> <!-- course-grid -->
+
+  <!-- Additional info / office hours -->
+  <div style="margin-top: 2.5rem; background: #eef3fc; border-radius: 32px; padding: 1.2rem 2rem; display: flex; flex-wrap: wrap; gap: 1.5rem 3rem; align-items: center; border: 1px solid #d3e2f5;">
+    <div><i class="fas fa-clock" style="color:#1a4b8c; margin-right: 0.6rem;"></i> <strong>Office hours:</strong> Mon/Wed 10–12, Room M341</div>
+    <div><i class="fas fa-envelope" style="color:#1a4b8c; margin-right: 0.4rem;"></i> <a href="mailto:anoori@iau.ac.ir" style="color:#0f2b4f;">anoori@iau.ac.ir</a></div>
+    <div><i class="fas fa-calendar-alt" style="color:#1a4b8c;"></i> <span style="font-weight:500;">All course materials updated weekly</span></div>
+  </div>
+
+  <div class="footer-note">
+    <span><i class="far fa-copyright"></i> Amir Noori · Teaching page</span>
+    <span><i class="fas fa-sync-alt"></i> Last update: July 2026</span>
+    <span><i class="fas fa-university"></i> Azad University of Karaj · ECE</span>
+  </div>
+
+</div> <!-- container -->
+</body>
+</html>
