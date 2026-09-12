@@ -38,7 +38,7 @@
       align-items: center;
       border-bottom: 2px solid #eef2f7;
       padding-bottom: 1.2rem;
-      margin-bottom: 2.2rem;
+      margin-bottom: 1.8rem;
     }
 
     .page-header h1 {
@@ -72,12 +72,55 @@
       background: #d0ddee;
     }
 
+    /* section headers */
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.8rem;
+      margin: 2rem 0 1.2rem 0;
+      padding-bottom: 0.6rem;
+      border-bottom: 3px solid #d0ddee;
+    }
+
+    .section-header h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #0b1a2b;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-header h2 i {
+      color: #1a4b8c;
+      font-size: 1.5rem;
+    }
+
+    .section-badge {
+      background: #1a4b8c;
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.15rem 1rem;
+      border-radius: 30px;
+      letter-spacing: 0.3px;
+    }
+
+    .section-badge.green {
+      background: #1e7a4a;
+    }
+
+    .section-badge.amber {
+      background: #b86e1a;
+    }
+
     /* course grid */
     .course-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 2rem;
-      margin-top: 1rem;
+      gap: 1.8rem;
+      margin-top: 0.5rem;
     }
 
     .course-card {
@@ -96,6 +139,14 @@
       background: #f8fbff;
     }
 
+    .course-card .course-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.3rem;
+      flex-wrap: wrap;
+    }
+
     .course-code {
       font-size: 0.85rem;
       font-weight: 600;
@@ -105,15 +156,33 @@
       padding: 0.1rem 1rem;
       border-radius: 30px;
       letter-spacing: 0.3px;
-      margin-bottom: 0.4rem;
       align-self: flex-start;
     }
 
+    .course-level {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.1rem 0.7rem;
+      border-radius: 30px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .course-level.grad {
+      background: #d4e6fc;
+      color: #0f3a6b;
+    }
+
+    .course-level.undergrad {
+      background: #d9f0e4;
+      color: #0b4a2c;
+    }
+
     .course-title {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 600;
       color: #0b1a2b;
-      margin: 0.2rem 0 0.6rem 0;
+      margin: 0.15rem 0 0.5rem 0;
     }
 
     .course-meta {
@@ -122,9 +191,9 @@
       gap: 0.3rem 1rem;
       font-size: 0.9rem;
       color: #2c405e;
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.7rem;
       border-bottom: 1px dashed #dce5f0;
-      padding-bottom: 0.6rem;
+      padding-bottom: 0.5rem;
     }
 
     .course-meta i {
@@ -134,7 +203,7 @@
 
     .resource-list {
       list-style: none;
-      margin: 0.6rem 0 0.2rem 0;
+      margin: 0.5rem 0 0.2rem 0;
       flex: 1;
     }
 
@@ -183,14 +252,14 @@
     }
 
     .exam-quiz {
-      margin-top: 0.8rem;
+      margin-top: 0.7rem;
       background: #f1f7ff;
       padding: 0.5rem 1rem;
       border-radius: 40px;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem 1.8rem;
-      font-size: 0.9rem;
+      gap: 0.6rem 1.4rem;
+      font-size: 0.88rem;
       border: 1px solid #dce8f7;
     }
 
@@ -203,12 +272,12 @@
       margin-top: 0.6rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem 1.2rem;
+      gap: 0.5rem 1rem;
     }
 
     .social-links a {
       color: #1a4b8c;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       text-decoration: none;
       background: #eef3fb;
       padding: 0.1rem 1rem;
@@ -224,6 +293,97 @@
       background: #d6e2f2;
     }
 
+    /* ===== NEXT SEMESTER SUMMARY TABLE ===== */
+    .next-sem-summary {
+      background: #fcfdff;
+      border: 1px dashed #c8d8ec;
+      border-radius: 24px;
+      padding: 1.8rem 2rem;
+      margin-top: 0.5rem;
+    }
+
+    .next-sem-summary p.intro {
+      font-size: 0.95rem;
+      color: #2c405e;
+      margin-bottom: 1.2rem;
+    }
+
+    .next-sem-summary p.intro i {
+      color: #1a4b8c;
+      margin-right: 0.5rem;
+    }
+
+    .summary-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    .summary-table thead th {
+      text-align: left;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: #1a4b8c;
+      padding: 0.5rem 0.8rem;
+      border-bottom: 2px solid #dce8f7;
+    }
+
+    .summary-table tbody td {
+      padding: 0.7rem 0.8rem;
+      border-bottom: 1px solid #eef4fc;
+      vertical-align: middle;
+    }
+
+    .summary-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .summary-table tbody tr:hover {
+      background: #f4f9ff;
+    }
+
+    .summary-table .code-cell {
+      font-weight: 600;
+      color: #1a4b8c;
+      white-space: nowrap;
+    }
+
+    .summary-table .title-cell {
+      font-weight: 500;
+      color: #0b1a2b;
+    }
+
+    .summary-table .level-cell {
+      white-space: nowrap;
+    }
+
+    .level-pill {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.1rem 0.7rem;
+      border-radius: 30px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      background: #d4e6fc;
+      color: #0f3a6b;
+    }
+
+    .summary-note {
+      margin-top: 1.2rem;
+      font-size: 0.9rem;
+      color: #5a6e88;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .summary-note i {
+      color: #b86e1a;
+    }
+
+    /* footer */
     .footer-note {
       margin-top: 2.5rem;
       border-top: 1px solid #e3ebf6;
@@ -235,6 +395,7 @@
       justify-content: space-between;
     }
 
+    /* responsive */
     @media (max-width: 700px) {
       .container {
         padding: 1.5rem;
@@ -247,6 +408,22 @@
         align-items: flex-start;
         gap: 1rem;
       }
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+      }
+      .next-sem-summary {
+        padding: 1.2rem 1rem;
+        overflow-x: auto;
+      }
+      .summary-table {
+        font-size: 0.85rem;
+      }
+      .summary-table thead th,
+      .summary-table tbody td {
+        padding: 0.5rem 0.5rem;
+      }
     }
   </style>
 </head>
@@ -255,19 +432,141 @@
 
   <!-- header -->
   <div class="page-header">
-    <h1><i class="fas fa-chalkboard-teacher"></i> Teaching · Courses & Resources</h1>
+    <h1><i class="fas fa-chalkboard-teacher"></i> Teaching · Courses &amp; Resources</h1>
     <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to profile</a>
   </div>
 
-  <!-- course grid -->
+  <!-- ============================================================ -->
+  <!-- CURRENT SEMESTER — FALL 2026                                 -->
+  <!-- ============================================================ -->
+  <div class="section-header">
+    <h2><i class="fas fa-calendar-check"></i> Current Semester</h2>
+    <span class="section-badge green">Fall 2026</span>
+  </div>
+
   <div class="course-grid">
 
-    <!-- ========== COURSE 1 ========== -->
+    <!-- ===== GRADUATE COURSE: Game Theory ===== -->
     <div class="course-card">
-      <span class="course-code">EE 107</span>
-      <div class="course-title">Computer-aided Digital Design</div>
+      <div class="course-header">
+        <span class="course-code">CE 5331</span>
+        <span class="course-level grad">Graduate</span>
+      </div>
+      <div class="course-title">Game Theory</div>
       <div class="course-meta">
-        <span><i class="fas fa-calendar-alt"></i> Spring 2026</span>
+        <span><i class="fas fa-calendar-alt"></i> Fall 2026</span>
+        <span><i class="fas fa-clock"></i> TBA</span>
+      </div>
+      <ul class="resource-list">
+        <li><i class="fas fa-file-powerpoint"></i> <a href="#">Lecture slides</a> <span class="badge-resource">PDF</span></li>
+        <li><i class="fas fa-code"></i> <a href="#">Problem sets &amp; solutions</a></li>
+        <li><i class="fas fa-video"></i> <a href="#">Recorded sessions</a></li>
+        <li><i class="fas fa-book-open"></i> <a href="#">Reading list</a></li>
+      </ul>
+      <div class="exam-quiz">
+        <span><i class="fas fa-pencil-alt"></i> Quiz 1: TBA</span>
+        <span><i class="fas fa-pencil-alt"></i> Midterm: TBA</span>
+        <span><i class="fas fa-file-signature"></i> Final: TBA</span>
+      </div>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-telegram"></i> Telegram group</a>
+        <a href="#"><i class="fas fa-link"></i> Course page</a>
+      </div>
+    </div>
+
+    <!-- ===== GRADUATE COURSE: Intelligent Electric Energy Networks ===== -->
+    <div class="course-card">
+      <div class="course-header">
+        <span class="course-code">EE 434</span>
+        <span class="course-level grad">Graduate</span>
+      </div>
+      <div class="course-title">Intelligent Electric Energy Networks</div>
+      <div class="course-meta">
+        <span><i class="fas fa-calendar-alt"></i> Fall 2026</span>
+        <span><i class="fas fa-clock"></i> TBA</span>
+      </div>
+      <ul class="resource-list">
+        <li><i class="fas fa-file-powerpoint"></i> <a href="#">Slides · smart grid &amp; AI</a> <span class="badge-resource">PDF</span></li>
+        <li><i class="fas fa-database"></i> <a href="#">Datasets &amp; notebooks</a></li>
+        <li><i class="fas fa-video"></i> <a href="#">Lecture capture</a></li>
+        <li><i class="fas fa-question-circle"></i> <a href="#">Discussion forum</a></li>
+      </ul>
+      <div class="exam-quiz">
+        <span><i class="fas fa-pencil-alt"></i> Quiz 1: TBA</span>
+        <span><i class="fas fa-pencil-alt"></i> Midterm: TBA</span>
+        <span><i class="fas fa-file-signature"></i> Project: TBA</span>
+      </div>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-slack"></i> Slack</a>
+        <a href="#"><i class="fas fa-envelope"></i> Mailing list</a>
+      </div>
+    </div>
+
+    <!-- ===== GRADUATE COURSE: Research Methodology ===== -->
+    <div class="course-card">
+      <div class="course-header">
+        <span class="course-code">CE 5001</span>
+        <span class="course-level grad">Graduate</span>
+      </div>
+      <div class="course-title">Research Methodology</div>
+      <div class="course-meta">
+        <span><i class="fas fa-calendar-alt"></i> Fall 2026</span>
+        <span><i class="fas fa-clock"></i> TBA</span>
+      </div>
+      <ul class="resource-list">
+        <li><i class="fas fa-file-powerpoint"></i> <a href="#">Slides · research design</a> <span class="badge-resource">PDF</span></li>
+        <li><i class="fas fa-file-alt"></i> <a href="#">Writing &amp; citation guides</a></li>
+        <li><i class="fas fa-video"></i> <a href="#">Recorded seminars</a></li>
+        <li><i class="fas fa-newspaper"></i> <a href="#">Example papers</a></li>
+      </ul>
+      <div class="exam-quiz">
+        <span><i class="fas fa-pencil-alt"></i> Assignment 1: TBA</span>
+        <span><i class="fas fa-pencil-alt"></i> Proposal: TBA</span>
+        <span><i class="fas fa-file-signature"></i> Final presentation: TBA</span>
+      </div>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-telegram"></i> Telegram</a>
+        <a href="#"><i class="fas fa-link"></i> Course page</a>
+      </div>
+    </div>
+
+    <!-- ===== UNDERGRAD COURSE: Computer Architecture and Microcontrollers ===== -->
+    <div class="course-card">
+      <div class="course-header">
+        <span class="course-code">ELE 318</span>
+        <span class="course-level undergrad">Undergraduate</span>
+      </div>
+      <div class="course-title">Computer Architecture and Microcontrollers</div>
+      <div class="course-meta">
+        <span><i class="fas fa-calendar-alt"></i> Fall 2026</span>
+        <span><i class="fas fa-clock"></i> TBA</span>
+      </div>
+      <ul class="resource-list">
+        <li><i class="fas fa-file-powerpoint"></i> <a href="#">Slides · CPU &amp; memory</a> <span class="badge-resource">PDF</span></li>
+        <li><i class="fas fa-microchip"></i> <a href="#">Assembly &amp; microcontroller labs</a></li>
+        <li><i class="fas fa-video"></i> <a href="#">Recorded lectures</a></li>
+        <li><i class="fas fa-tasks"></i> <a href="#">Assignment solutions</a></li>
+      </ul>
+      <div class="exam-quiz">
+        <span><i class="fas fa-pencil-alt"></i> Quiz 1: TBA</span>
+        <span><i class="fas fa-pencil-alt"></i> Midterm: TBA</span>
+        <span><i class="fas fa-file-signature"></i> Final: TBA</span>
+      </div>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-discord"></i> Discord</a>
+        <a href="#"><i class="fas fa-link"></i> Moodle</a>
+      </div>
+    </div>
+
+    <!-- ===== UNDERGRAD COURSE: Computer-aided Digital System Design ===== -->
+    <div class="course-card">
+      <div class="course-header">
+        <span class="course-code">CE 242</span>
+        <span class="course-level undergrad">Undergraduate</span>
+      </div>
+      <div class="course-title">Computer-aided Digital System Design</div>
+      <div class="course-meta">
+        <span><i class="fas fa-calendar-alt"></i> Fall 2026</span>
         <span><i class="fas fa-clock"></i> Mon/Wed 10:30</span>
       </div>
       <ul class="resource-list">
@@ -277,9 +576,9 @@
         <li><i class="fas fa-book-open"></i> <a href="#">Reading list</a></li>
       </ul>
       <div class="exam-quiz">
-        <span><i class="fas fa-pencil-alt"></i> Quiz 1: 20 Feb</span>
-        <span><i class="fas fa-pencil-alt"></i> Quiz 2: 15 Mar</span>
-        <span><i class="fas fa-file-signature"></i> Final: 30 Apr</span>
+        <span><i class="fas fa-pencil-alt"></i> Quiz 1: 20 Oct</span>
+        <span><i class="fas fa-pencil-alt"></i> Quiz 2: 15 Nov</span>
+        <span><i class="fas fa-file-signature"></i> Final: 20 Dec</span>
       </div>
       <div class="social-links">
         <a href="#"><i class="fab fa-telegram"></i> Telegram group</a>
@@ -288,12 +587,15 @@
       </div>
     </div>
 
-    <!-- ========== COURSE 2 ========== -->
+    <!-- ===== UNDERGRAD COURSE: AI and Digital Transformation ===== -->
     <div class="course-card">
-      <span class="course-code">EE 113</span>
-      <div class="course-title">AI &amp; Digital Transformation</div>
+      <div class="course-header">
+        <span class="course-code">ELE 325</span>
+        <span class="course-level undergrad">Undergraduate</span>
+      </div>
+      <div class="course-title">AI and Digital Transformation</div>
       <div class="course-meta">
-        <span><i class="fas fa-calendar-alt"></i> Spring 2026</span>
+        <span><i class="fas fa-calendar-alt"></i> Fall 2026</span>
         <span><i class="fas fa-clock"></i> Tue/Thu 13:00</span>
       </div>
       <ul class="resource-list">
@@ -303,9 +605,9 @@
         <li><i class="fas fa-question-circle"></i> <a href="#">Discussion forum</a></li>
       </ul>
       <div class="exam-quiz">
-        <span><i class="fas fa-pencil-alt"></i> Quiz 1: 25 Feb</span>
-        <span><i class="fas fa-pencil-alt"></i> Midterm: 4 Apr</span>
-        <span><i class="fas fa-file-signature"></i> Project: 20 May</span>
+        <span><i class="fas fa-pencil-alt"></i> Quiz 1: 25 Oct</span>
+        <span><i class="fas fa-pencil-alt"></i> Midterm: 10 Nov</span>
+        <span><i class="fas fa-file-signature"></i> Project: 15 Dec</span>
       </div>
       <div class="social-links">
         <a href="#"><i class="fab fa-slack"></i> Slack</a>
@@ -314,9 +616,166 @@
       </div>
     </div>
 
-    <!-- ========== COURSE 3 ========== -->
+    <!-- ===== UNDERGRAD COURSE: Technique Pulse Lab ===== -->
     <div class="course-card">
-      <span class="course-code">EE 115</span>
+      <div class="course-header">
+        <span class="course-code">ELE 413</span>
+        <span class="course-level undergrad">Undergraduate</span>
+      </div>
+      <div class="course-title">Technique Pulse Lab</div>
+      <div class="course-meta">
+        <span><i class="fas fa-calendar-alt"></i> Fall 2026</span>
+        <span><i class="fas fa-clock"></i> TBA</span>
+      </div>
+      <ul class="resource-list">
+        <li><i class="fas fa-file-powerpoint"></i> <a href="#">Lab manual &amp; procedures</a> <span class="badge-resource">PDF</span></li>
+        <li><i class="fas fa-wave-square"></i> <a href="#">Pulse generator circuits</a></li>
+        <li><i class="fas fa-video"></i> <a href="#">Demonstration videos</a></li>
+        <li><i class="fas fa-chart-bar"></i> <a href="#">Measurement data &amp; analysis</a></li>
+      </ul>
+      <div class="exam-quiz">
+        <span><i class="fas fa-pencil-alt"></i> Lab report 1: TBA</span>
+        <span><i class="fas fa-pencil-alt"></i> Lab report 2: TBA</span>
+        <span><i class="fas fa-file-signature"></i> Final project: TBA</span>
+      </div>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-telegram"></i> Telegram</a>
+        <a href="#"><i class="fas fa-link"></i> Lab page</a>
+      </div>
+    </div>
+
+    <!-- ===== UNDERGRAD COURSE: Computer Architecture Lab ===== -->
+    <div class="course-card">
+      <div class="course-header">
+        <span class="course-code">ELE 324</span>
+        <span class="course-level undergrad">Undergraduate</span>
+      </div>
+      <div class="course-title">Computer Architecture Lab</div>
+      <div class="course-meta">
+        <span><i class="fas fa-calendar-alt"></i> Fall 2026</span>
+        <span><i class="fas fa-clock"></i> TBA</span>
+      </div>
+      <ul class="resource-list">
+        <li><i class="fas fa-file-powerpoint"></i> <a href="#">Lab instructions</a> <span class="badge-resource">PDF</span></li>
+        <li><i class="fas fa-microchip"></i> <a href="#">FPGA / HDL projects</a></li>
+        <li><i class="fas fa-video"></i> <a href="#">Tutorial videos</a></li>
+        <li><i class="fas fa-code"></i> <a href="#">Reference designs</a></li>
+      </ul>
+      <div class="exam-quiz">
+        <span><i class="fas fa-pencil-alt"></i> Lab demo 1: TBA</span>
+        <span><i class="fas fa-pencil-alt"></i> Lab demo 2: TBA</span>
+        <span><i class="fas fa-file-signature"></i> Final project: TBA</span>
+      </div>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-discord"></i> Discord</a>
+        <a href="#"><i class="fas fa-link"></i> GitHub</a>
+      </div>
+    </div>
+
+    <!-- ===== UNDERGRAD COURSE: FPGA-based Digital Systems ===== -->
+    <div class="course-card">
+      <div class="course-header">
+        <span class="course-code">ELE 408</span>
+        <span class="course-level undergrad">Undergraduate</span>
+      </div>
+      <div class="course-title">FPGA-based Digital Systems</div>
+      <div class="course-meta">
+        <span><i class="fas fa-calendar-alt"></i> Fall 2026</span>
+        <span><i class="fas fa-clock"></i> TBA</span>
+      </div>
+      <ul class="resource-list">
+        <li><i class="fas fa-file-powerpoint"></i> <a href="#">Slides · FPGA architecture</a> <span class="badge-resource">PDF</span></li>
+        <li><i class="fas fa-code"></i> <a href="#">Verilog / VHDL examples</a></li>
+        <li><i class="fas fa-video"></i> <a href="#">Recorded sessions</a></li>
+        <li><i class="fas fa-book"></i> <a href="#">Vendor documentation</a></li>
+      </ul>
+      <div class="exam-quiz">
+        <span><i class="fas fa-pencil-alt"></i> Quiz: TBA</span>
+        <span><i class="fas fa-pencil-alt"></i> Midterm: TBA</span>
+        <span><i class="fas fa-file-signature"></i> Final project: TBA</span>
+      </div>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-telegram"></i> Telegram</a>
+        <a href="#"><i class="fas fa-link"></i> Course page</a>
+      </div>
+    </div>
+
+  </div> <!-- current semester grid -->
+
+
+  <!-- ============================================================ -->
+  <!-- NEXT SEMESTER — SPRING 2027 (SUMMARIZED)                     -->
+  <!-- ============================================================ -->
+  <div class="section-header" style="margin-top: 2.8rem;">
+    <h2><i class="fas fa-calendar-plus"></i> Next Semester</h2>
+    <span class="section-badge amber">Spring 2027 · Graduate</span>
+  </div>
+
+  <div class="next-sem-summary">
+    <p class="intro">
+      <i class="fas fa-circle-info"></i>
+      The following graduate courses will be offered in <strong>Spring 2027</strong>. Detailed materials, schedules, and resource links will be published closer to the start of the semester.
+    </p>
+
+    <table class="summary-table">
+      <thead>
+        <tr>
+          <th>Course Code</th>
+          <th>Course Title</th>
+          <th>Level</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="code-cell">EE 141</td>
+          <td class="title-cell">VHDL</td>
+          <td class="level-cell"><span class="level-pill">Graduate</span></td>
+        </tr>
+        <tr>
+          <td class="code-cell">EE 142</td>
+          <td class="title-cell">System-on-Chip</td>
+          <td class="level-cell"><span class="level-pill">Graduate</span></td>
+        </tr>
+        <tr>
+          <td class="code-cell">CE 5570</td>
+          <td class="title-cell">Convex Optimization</td>
+          <td class="level-cell"><span class="level-pill">Graduate</span></td>
+        </tr>
+        <tr>
+          <td class="code-cell">CE 5651</td>
+          <td class="title-cell">Optimization Theory with Applications to Networks</td>
+          <td class="level-cell"><span class="level-pill">Graduate</span></td>
+        </tr>
+        <tr>
+          <td class="code-cell">CE 5653</td>
+          <td class="title-cell">Stochastic Process</td>
+          <td class="level-cell"><span class="level-pill">Graduate</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="summary-note">
+      <i class="fas fa-hourglass-half"></i> Resource links and detailed course pages will be added before the semester begins.
+    </div>
+  </div>
+
+
+  <!-- ============================================================ -->
+  <!-- COURSE ARCHIVE (PREVIOUS OFFERINGS)                          -->
+  <!-- ============================================================ -->
+  <div class="section-header" style="margin-top: 2.8rem;">
+    <h2><i class="fas fa-archive"></i> Course Archive</h2>
+    <span class="section-badge">Previous Offerings</span>
+  </div>
+
+  <div class="course-grid">
+
+    <!-- ===== EE 115: Power System Analysis ===== -->
+    <div class="course-card">
+      <div class="course-header">
+        <span class="course-code">EE 115</span>
+        <span class="course-level grad">Graduate / Undergrad</span>
+      </div>
       <div class="course-title">Power System Analysis</div>
       <div class="course-meta">
         <span><i class="fas fa-calendar-alt"></i> Spring 2026</span>
@@ -339,34 +798,12 @@
       </div>
     </div>
 
-    <!-- ========== COURSE 4 ========== -->
+    <!-- ===== EE 223: Power System Economics ===== -->
     <div class="course-card">
-      <span class="course-code">EE 114</span>
-      <div class="course-title">Large Scale Power Systems</div>
-      <div class="course-meta">
-        <span><i class="fas fa-calendar-alt"></i> Winter 2026</span>
-        <span><i class="fas fa-clock"></i> Tue/Thu 09:00</span>
+      <div class="course-header">
+        <span class="course-code">EE 223</span>
+        <span class="course-level grad">Graduate</span>
       </div>
-      <ul class="resource-list">
-        <li><i class="fas fa-file-powerpoint"></i> <a href="#">Slides · stability &amp; control</a></li>
-        <li><i class="fas fa-microchip"></i> <a href="#">Simulink models</a></li>
-        <li><i class="fas fa-video"></i> <a href="#">Video library</a></li>
-        <li><i class="fas fa-tasks"></i> <a href="#">Assignment solutions</a></li>
-      </ul>
-      <div class="exam-quiz">
-        <span><i class="fas fa-pencil-alt"></i> Quiz: 12 Mar</span>
-        <span><i class="fas fa-pencil-alt"></i> Midterm: 4 Apr</span>
-        <span><i class="fas fa-file-signature"></i> Final: 15 May</span>
-      </div>
-      <div class="social-links">
-        <a href="#"><i class="fab fa-discord"></i> Discord</a>
-        <a href="#"><i class="fas fa-link"></i> Moodle</a>
-      </div>
-    </div>
-
-    <!-- ========== COURSE 5 ========== -->
-    <div class="course-card">
-      <span class="course-code">EE 223</span>
       <div class="course-title">Power System Economics</div>
       <div class="course-meta">
         <span><i class="fas fa-calendar-alt"></i> Winter 2026</span>
@@ -389,35 +826,13 @@
       </div>
     </div>
 
-    <!-- ========== COURSE 6 (extra) ========== -->
-    <div class="course-card">
-      <span class="course-code">EE 341</span>
-      <div class="course-title">Optimization of Networks &amp; Graphs</div>
-      <div class="course-meta">
-        <span><i class="fas fa-calendar-alt"></i> Fall 2025</span>
-        <span><i class="fas fa-clock"></i> Tue/Thu 14:00</span>
-      </div>
-      <ul class="resource-list">
-        <li><i class="fas fa-file-powerpoint"></i> <a href="#">Slides · graph theory</a></li>
-        <li><i class="fas fa-code"></i> <a href="#">Python / NetworkX</a></li>
-        <li><i class="fas fa-video"></i> <a href="#">Recordings</a></li>
-        <li><i class="fas fa-book"></i> <a href="#">Textbook chapters</a></li>
-      </ul>
-      <div class="exam-quiz">
-        <span><i class="fas fa-pencil-alt"></i> Quiz: 20 Feb</span>
-        <span><i class="fas fa-pencil-alt"></i> Midterm: 10 Mar</span>
-        <span><i class="fas fa-file-signature"></i> Final: 15 Apr</span>
-      </div>
-      <div class="social-links">
-        <a href="#"><i class="fab fa-github"></i> GitHub</a>
-        <a href="#"><i class="fas fa-users"></i> Group chat</a>
-      </div>
-    </div>
+  </div> <!-- archive grid -->
 
-  </div> <!-- course-grid -->
 
-  <!-- Additional info / office hours -->
-  <div style="margin-top: 2.5rem; background: #eef3fc; border-radius: 32px; padding: 1.2rem 2rem; display: flex; flex-wrap: wrap; gap: 1.5rem 3rem; align-items: center; border: 1px solid #d3e2f5;">
+  <!-- ============================================================ -->
+  <!-- OFFICE HOURS / CONTACT                                       -->
+  <!-- ============================================================ -->
+  <div style="margin-top: 2.8rem; background: #eef3fc; border-radius: 32px; padding: 1.2rem 2rem; display: flex; flex-wrap: wrap; gap: 1.5rem 3rem; align-items: center; border: 1px solid #d3e2f5;">
     <div><i class="fas fa-clock" style="color:#1a4b8c; margin-right: 0.6rem;"></i> <strong>Office hours:</strong> Mon/Wed 10–12, Room M341</div>
     <div><i class="fas fa-envelope" style="color:#1a4b8c; margin-right: 0.4rem;"></i> <a href="mailto:anoori@iau.ac.ir" style="color:#0f2b4f;">anoori@iau.ac.ir</a></div>
     <div><i class="fas fa-calendar-alt" style="color:#1a4b8c;"></i> <span style="font-weight:500;">All course materials updated weekly</span></div>
